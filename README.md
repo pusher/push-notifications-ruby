@@ -57,7 +57,7 @@ Pusher::PushNotifications.notify(interests: ['my-interest'], payload: data)
 
 The return of this call is a ruby struct containing the http status code (`status`) the response body (`content`) and an `ok?` attribute saying if the notification was successful or not.
 
-**NOTE**: It's optional but you can insert a payload key at the same level of the `aps` and `notification` key with a custom value (A json for example), but keep in mind that you have the limitation of 10kb per message.
+**NOTE**: It's optional but you can insert a `data` key at the same level of the `aps` and `notification` keys with a custom value (A json for example), but keep in mind that you have the limitation of 10kb per message.
 
 ## Errors
 
