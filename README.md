@@ -1,4 +1,4 @@
-# Pusher::PushNotifications
+# Pusher::PushNotifications [![Build Status](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby.svg)](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby)
 
 TODO: ADD a description to this gem.
 
