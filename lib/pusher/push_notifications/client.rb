@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'forwardable'
+require 'json'
 require 'rest-client'
 
 module Pusher
@@ -10,7 +11,7 @@ module Pusher
 
       BASE_URL = 'pushnotifications.pusher.com/publish_api/v1/instances'
 
-      Response = Struct.new(:status, :content)
+      Response = Struct.new(:status, :content, :ok?)
 
       def initialize(config: Pusher::PushNotifications)
         @config = config
@@ -18,17 +19,14 @@ module Pusher
 
       def post(resource, payload = {})
         url = build_url(resource)
-
+        body = payload.to_json
         RestClient::Request.execute(
-          method: :post,
-          url: url,
-          payload: payload.to_json,
-          headers: headers) do |response|
-
+          method: :post, url: url,
+          payload: body, headers: headers
+        ) do |response|
           status = response.code
           body = JSON.parse(response.body)
-
-          Response.new(status, body)
+          Response.new(status, body, status == 200 ? true : false)
         end
       end
 

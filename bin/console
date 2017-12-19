@@ -8,6 +8,11 @@ Dotenv.load
 
 require 'pusher/push_notifications'
 
+Pusher::PushNotifications.configure do |config|
+  config.instance_id = ENV['PUSHER_INSTANCE_ID']
+  config.secret_key = ENV['PUSHER_SECRET_KEY']
+end
+
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
