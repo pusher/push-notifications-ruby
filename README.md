@@ -1,4 +1,4 @@
-# Pusher::PushNotifications [![Build Status](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby.svg)](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby) [![Coverage Status](https://coveralls.io/repos/github/lucasmedeirosleite/push-notifications-ruby/badge.svg?branch=master)](https://coveralls.io/github/lucasmedeirosleite/push-notifications-ruby?branch=master)
+# PushNotifications [![Build Status](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby.svg)](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby) [![Coverage Status](https://coveralls.io/repos/github/lucasmedeirosleite/push-notifications-ruby/badge.svg?branch=master)](https://coveralls.io/github/lucasmedeirosleite/push-notifications-ruby?branch=master)
 
 Push notifications using the Pusher system.
 
@@ -22,7 +22,7 @@ gem 'push_notifications', github: 'lucasmedeirosleite/push_notifications', branc
 This configuration can be done anywhere you want, but if you are using rails the better place to put it is inside an initializer
 
 ```ruby
-Pusher::PushNotifications.configure do |config|
+PushNotifications.configure do |config|
   config.instance_id = ENV['PUSHER_INSTANCE_ID'] # or the value directly :)
   config.secret_key = ENV['PUSHER_SECRET_KEY']
 end
@@ -52,7 +52,7 @@ data = {
   }
 }
 
-Pusher::PushNotifications.notify(interests: ['my-interest'], payload: data)
+PushNotifications.notify(interests: ['my-interest'], payload: data)
 ```
 
 The return of this call is a ruby struct containing the http status code (`status`) the response body (`content`) and an `ok?` attribute saying if the notification was successful or not.
@@ -64,7 +64,7 @@ The return of this call is a ruby struct containing the http status code (`statu
 The errors statuses can be:
 
 HTTP Status | Reason
---- | --- 
+--- | ---
 401 | Incorrect secret key
 400 | Payload too big (10Kb limit), Payload invalid, Payload in a wrong schema, instance_id missing
 404 | Instance not found

@@ -3,11 +3,11 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'pusher/push_notifications/version'
+require 'push_notifications/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'push_notifications'
-  spec.version       = Pusher::PushNotifications::VERSION
+  spec.version       = PushNotifications::VERSION
   spec.authors       = ['Lucas Medeiros']
   spec.email         = ['lucastoc@gmail.com']
 
