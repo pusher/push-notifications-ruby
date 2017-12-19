@@ -14,7 +14,7 @@ With an account created you can create a new push notification instance (you wil
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'push_notifications', github: 'lucasmedeirosleite/push_notifications'
+gem 'push_notifications', github: 'lucasmedeirosleite/push_notifications', branch: 'master'
 ```
 
 ## Configuration
