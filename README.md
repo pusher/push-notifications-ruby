@@ -1,4 +1,4 @@
-# Pusher::PushNotifications [![Build Status](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby.svg)](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby)
+# Pusher::PushNotifications [![Build Status](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby.svg)](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby) [![Coverage Status](https://coveralls.io/repos/github/lucasmedeirosleite/push-notifications-ruby/badge.svg?branch=master)](https://coveralls.io/github/lucasmedeirosleite/push-notifications-ruby?branch=master)
 
 TODO: ADD a description to this gem.
 
