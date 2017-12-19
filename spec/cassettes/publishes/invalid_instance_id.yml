@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://abe1212381f60.pushnotifications.pusher.com/publish_api/v1/instances/abe1212381f60/publishes
+    body:
+      encoding: UTF-8
+      string: '{"interests":["hello"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
+        world!"}}},"fcm":{"notification":{"title":"Hello","body":"Hello, world!"}}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.4.2p198
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 2572CB0667EEBAB04BECF88679A6FA1
+      Content-Length:
+      - '153'
+      Host:
+      - abe1212381f60.pushnotifications.pusher.com
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 19 Dec 2017 15:26:06 GMT
+      Content-Length:
+      - '75'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"error":"Instance not found","description":"Could not find the instance"}
+
+'
+    http_version: 
+  recorded_at: Tue, 19 Dec 2017 15:26:06 GMT
+recorded_with: VCR 3.0.3

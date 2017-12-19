@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pusher/push_notifications/client'
 require 'pusher/push_notifications/version'
 
 module Pusher

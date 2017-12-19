@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'caze'
-  spec.add_dependency 'httparty'
+  spec.add_dependency 'rest-client'
 
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'coveralls', '~> 0.8.21'
