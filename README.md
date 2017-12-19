@@ -1,24 +1,14 @@
 # Pusher::PushNotifications
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pusher/push_notifications`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+TODO: ADD a description to this gem.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pusher-push_notifications'
+gem 'push_notifications', github: 'lucasmedeirosleite/push_notifications'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install pusher-push_notifications
 
 ## Usage
 
@@ -32,7 +22,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pusher-push_notifications.
+Bug reports and pull requests are welcome on GitHub at https://github.com/lucasmedeirosleite/push-notifications-ruby.
 
 ## License
 
