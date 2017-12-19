@@ -4,7 +4,7 @@ Push notifications using the Pusher system.
 
 ## Getting started
 
-The Push notifications system is still in BETA and it's free, but first you need to create an account on pusher(click [here](https://dash.pusher.com)).
+The Push notifications system is still in BETA and it's free, but first you need to create an account on pusher (click [here](https://dash.pusher.com)).
 With an account created you can create a new push notification instance (you will need to upload the apns certificates for apple and the server keys for Google's Firebase Cloud Messaging). Also you will need the `instance id` and `secret key` so the gem can be configured properly.
 
 **NOTE**: The official Pusher [gem](https://github.com/pusher/pusher-http-ruby) currently does not support push notifications (probably because they moved it to another dashboard), you need to rely on the WEB API (that's why this gem was created).
