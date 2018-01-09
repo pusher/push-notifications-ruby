@@ -14,7 +14,7 @@ With an account created you can create a new push notification instance (you wil
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'push_notifications', github: 'lucasmedeirosleite/push_notifications', branch: 'master'
+gem 'pusher-push-notifications'
 ```
 
 ## Configuration
@@ -22,7 +22,7 @@ gem 'push_notifications', github: 'lucasmedeirosleite/push_notifications', branc
 This configuration can be done anywhere you want, but if you are using rails the better place to put it is inside an initializer
 
 ```ruby
-PushNotifications.configure do |config|
+Pusher::PushNotifications.configure do |config|
   config.instance_id = ENV['PUSHER_INSTANCE_ID'] # or the value directly :)
   config.secret_key = ENV['PUSHER_SECRET_KEY']
 end
@@ -52,7 +52,7 @@ data = {
   }
 }
 
-PushNotifications.notify(interests: ['my-interest'], payload: data)
+Pusher::PushNotifications.notify(interests: ['my-interest'], payload: data)
 ```
 
 The return of this call is a ruby struct containing the http status code (`status`) the response body (`content`) and an `ok?` attribute saying if the notification was successful or not.

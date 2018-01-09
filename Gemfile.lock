@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    push_notifications (0.1.0)
+    pusher-push-notifications (0.1.0)
       caze
       rest-client
 
@@ -115,7 +115,7 @@ DEPENDENCIES
   coveralls (~> 0.8.21)
   dotenv (~> 2.2, >= 2.2.1)
   pry-byebug
-  push_notifications!
+  pusher-push-notifications!
   rake (~> 10.0)
   rspec (~> 3.0)
   rubocop

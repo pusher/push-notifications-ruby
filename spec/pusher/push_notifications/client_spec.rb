@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe PushNotifications::Client do
+RSpec.describe Pusher::PushNotifications::Client do
   subject(:client) { described_class.new(config: config) }
 
   let(:config) { double(:config, instance_id: instance_id, secret_key: secret_key) }

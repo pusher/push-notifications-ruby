@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe PushNotifications do
+RSpec.describe Pusher::PushNotifications do
   describe '.configure' do
     subject(:configuration) do
       described_class.configure do |config|
@@ -20,7 +20,7 @@ RSpec.describe PushNotifications do
 
         it 'warns instance_id is invalid' do
           expect { configuration }.to raise_error(
-            PushNotifications::PushError
+            Pusher::PushNotifications::PushError
           ).with_message('Invalid instance id')
         end
       end
@@ -30,7 +30,7 @@ RSpec.describe PushNotifications do
 
         it 'warns instance_id is invalid' do
           expect { configuration }.to raise_error(
-            PushNotifications::PushError
+            Pusher::PushNotifications::PushError
           ).with_message('Invalid instance id')
         end
       end
@@ -42,7 +42,7 @@ RSpec.describe PushNotifications do
 
         it 'warns secret_key is invalid' do
           expect { configuration }.to raise_error(
-            PushNotifications::PushError
+            Pusher::PushNotifications::PushError
           ).with_message('Invalid secret key')
         end
       end
@@ -52,7 +52,7 @@ RSpec.describe PushNotifications do
 
         it 'warns secret_key is invalid' do
           expect { configuration }.to raise_error(
-            PushNotifications::PushError
+            Pusher::PushNotifications::PushError
           ).with_message('Invalid secret key')
         end
       end

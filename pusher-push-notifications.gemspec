@@ -3,15 +3,15 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'push_notifications/version'
+require 'pusher/push_notifications/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'push_notifications'
-  spec.version       = PushNotifications::VERSION
+  spec.name          = 'pusher-push-notifications'
+  spec.version       = Pusher::PushNotifications::VERSION
   spec.authors       = ['Lucas Medeiros']
   spec.email         = ['lucastoc@gmail.com']
 
-  spec.summary       = 'PushNotifications pusher product '
+  spec.summary       = 'PushNotifications pusher product'
   spec.description   = 'A gem to use the Pusher BETA product Push Notifications'
   spec.homepage      = 'https://github.com/lucasmedeirosleite/push-notifications-ruby'
   spec.license       = 'MIT'

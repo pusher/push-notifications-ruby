@@ -6,9 +6,9 @@ require 'bundler/setup'
 require 'dotenv'
 Dotenv.load
 
-require 'push_notifications'
+require 'pusher'
 
-PushNotifications.configure do |config|
+Pusher::PushNotifications.configure do |config|
   config.instance_id = ENV['PUSHER_INSTANCE_ID']
   config.secret_key = ENV['PUSHER_SECRET_KEY']
 end

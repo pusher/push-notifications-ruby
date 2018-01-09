@@ -10,7 +10,7 @@ Dotenv.load
 
 require 'bundler/setup'
 require 'pry-byebug'
-require 'push_notifications'
+require 'pusher'
 require 'vcr'
 require 'webmock'
 
