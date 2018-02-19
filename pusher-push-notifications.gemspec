@@ -8,8 +8,8 @@ require 'pusher/push_notifications/version'
 Gem::Specification.new do |spec|
   spec.name          = 'pusher-push-notifications'
   spec.version       = Pusher::PushNotifications::VERSION
-  spec.authors       = ['Lucas Medeiros']
-  spec.email         = ['lucastoc@gmail.com']
+  spec.authors       = ['Lucas Medeiros', 'Luka Bratos']
+  spec.email         = ['lucastoc@gmail.com', 'luka@pusher.com']
 
   spec.summary       = 'PushNotifications pusher product'
   spec.description   = 'A gem to use the Pusher BETA product Push Notifications'
