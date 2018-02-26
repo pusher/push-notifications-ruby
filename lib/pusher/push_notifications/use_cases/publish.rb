@@ -5,10 +5,10 @@ require 'caze'
 module Pusher
   module PushNotifications
     module UseCases
-      class Notify
+      class Publish
         include Caze
 
-        export :call, as: :notify
+        export :call, as: :publish
 
         def initialize(interests:, payload: {})
           @interests = interests
