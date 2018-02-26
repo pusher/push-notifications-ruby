@@ -47,7 +47,7 @@ data = {
   }
 }
 
-Pusher::PushNotifications.publish(interests: ['my-interest'], payload: data)
+Pusher::PushNotifications.publish(interests: ['hello'], payload: data)
 ```
 
 The return of this call is a ruby struct containing the http status code (`status`) the response body (`content`) and an `ok?` attribute saying if the notification was successful or not.
