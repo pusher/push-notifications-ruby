@@ -1,17 +1,16 @@
-# PushNotifications [![Build Status](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby.svg)](https://travis-ci.org/lucasmedeirosleite/push-notifications-ruby) [![Coverage Status](https://coveralls.io/repos/github/lucasmedeirosleite/push-notifications-ruby/badge.svg?branch=master)](https://coveralls.io/github/lucasmedeirosleite/push-notifications-ruby?branch=master)
+# Pusher Push Notifications Ruby Server SDK
+
+[![Build Status](https://travis-ci.org/pusher/push-notifications-ruby.svg?branch=master)](https://travis-ci.org/pusher/push-notifications-ruby) [![![Coverage Status](https://coveralls.io/repos/github/pusher/push-notifications-ruby/badge.svg?branch=master)](https://coveralls.io/github/pusher/push-notifications-ruby?branch=master)
 
 Push notifications using the Pusher system.
 
-## Getting started
-
-The Push notifications system is still in BETA and it's free, but first you need to create an account on pusher (click [here](https://dash.pusher.com)).
-With an account created you can create a new push notification instance (you will need to upload the apns certificates for apple and the server keys for Google's Firebase Cloud Messaging). Also you will need the `instance id` and `secret key` so the gem can be configured properly.
-
-**NOTE**: The official Pusher [gem](https://github.com/pusher/pusher-http-ruby) currently does not support push notifications (probably because they moved it to another dashboard), you need to rely on the WEB API (that's why this gem was created).
-
 ## Installation
 
-Add this line to your application's Gemfile:
+```bash
+gem install pusher-push-notifications
+```
+
+Or add this line to your application's Gemfile:
 
 ```ruby
 gem 'pusher-push-notifications'
@@ -23,7 +22,7 @@ This configuration can be done anywhere you want, but if you are using rails the
 
 ```ruby
 Pusher::PushNotifications.configure do |config|
-  config.instance_id = ENV['PUSHER_INSTANCE_ID'] # or the value directly :)
+  config.instance_id = ENV['PUSHER_INSTANCE_ID'] # or the value directly
   config.secret_key = ENV['PUSHER_SECRET_KEY']
 end
 ```
@@ -52,7 +51,7 @@ data = {
   }
 }
 
-Pusher::PushNotifications.notify(interests: ['my-interest'], payload: data)
+Pusher::PushNotifications.publish(interests: ['hello'], payload: data)
 ```
 
 The return of this call is a ruby struct containing the http status code (`status`) the response body (`content`) and an `ok?` attribute saying if the notification was successful or not.
@@ -70,10 +69,6 @@ HTTP Status | Reason
 404 | Instance not found
 500 | Internal server error
 
-## TODO
-
-Add an optional parameter containing the webhook url to be send together with the payload.
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -82,7 +77,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/lucasmedeirosleite/push-notifications-ruby.
+- Found a bug? Please open an [issue](https://github.com/pusher/push-notifications-ruby/issues).
+- Have a feature request. Please open an [issue](https://github.com/pusher/push-notifications-ruby/issues).
+- If you want to contribute, please submit a [pull request](https://github.com/pusher/push-notifications-ruby/pulls) (preferrably with some tests).
 
 ## License
 

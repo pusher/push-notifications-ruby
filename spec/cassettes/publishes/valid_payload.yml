@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://abe81f60-efed-4b9d-81b6-4c56dd38e8c3.pushnotifications.pusher.com/publish_api/v1/instances/abe81f60-efed-4b9d-81b6-4c56dd38e8c3/publishes
+    uri: https://97c56dfe-58f5-408b-ab3a-158e51a860f2.pushnotifications.pusher.com/publish_api/v1/instances/97c56dfe-58f5-408b-ab3a-158e51a860f2/publishes
     body:
       encoding: UTF-8
       string: '{"interests":["hello"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
@@ -17,11 +17,11 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 2572CB0667EEBAB04BECF88679A6FA1
+      - Bearer 6033364526F02EDEF472461879CE485
       Content-Length:
       - '153'
       Host:
-      - abe81f60-efed-4b9d-81b6-4c56dd38e8c3.pushnotifications.pusher.com
+      - 97c56dfe-58f5-408b-ab3a-158e51a860f2.pushnotifications.pusher.com
   response:
     status:
       code: 200
@@ -41,7 +41,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"publishId":"pubid-9a13bc85-c5f7-4d03-ac93-95d1e0bfcdb7"}
+      string: '{"publishId":"pubid-9fa9e124-c5ef-4c58-9a2a-34da02051c3c"}
 
 '
     http_version: 

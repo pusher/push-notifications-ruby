@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Pusher::PushNotifications::UseCases::Notify do
+RSpec.describe Pusher::PushNotifications::UseCases::Publish do
   subject(:use_case) { described_class.new(interests: interests, payload: payload) }
 
   let(:interests) { ['hello'] }

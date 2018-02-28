@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pusher-push-notifications (0.1.1)
+    pusher-push-notifications (0.2.1)
       caze
       rest-client
 

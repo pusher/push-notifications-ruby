@@ -3,7 +3,7 @@
 require 'caze'
 
 require_relative './push_notifications/client'
-require_relative './push_notifications/use_cases/notify'
+require_relative './push_notifications/use_cases/publish'
 require_relative './push_notifications/version'
 
 module Pusher
@@ -12,7 +12,7 @@ module Pusher
 
     class PushError < RuntimeError; end
 
-    has_use_case :notify, UseCases::Notify
+    has_use_case :publish, UseCases::Publish
 
     class << self
       attr_reader :instance_id, :secret_key
