@@ -6,7 +6,9 @@ Push notifications using the Pusher system.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+`gem install pusher-push-notifications`
+
+Or add this line to your application's Gemfile:
 
 ```ruby
 gem 'pusher-push-notifications'
