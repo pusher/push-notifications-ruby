@@ -1,6 +1,7 @@
 # Pusher Push Notifications Ruby Server SDK
 
-[![Build Status](https://travis-ci.org/pusher/push-notifications-ruby.svg?branch=master)](https://travis-ci.org/pusher/push-notifications-ruby) [![![Coverage Status](https://coveralls.io/repos/github/pusher/push-notifications-ruby/badge.svg?branch=master)](https://coveralls.io/github/pusher/push-notifications-ruby?branch=master)
+[![Build Status](https://travis-ci.org/pusher/push-notifications-ruby.svg?branch=master)](https://travis-ci.org/pusher/push-notifications-ruby)
+[![Coverage Status](https://coveralls.io/repos/github/pusher/push-notifications-ruby/badge.svg?branch=update-sdk)](https://coveralls.io/github/pusher/push-notifications-ruby?branch=update-sdk)
 
 Push notifications using the Pusher system.
 
