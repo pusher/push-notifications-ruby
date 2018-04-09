@@ -51,5 +51,17 @@ RSpec.describe Pusher::PushNotifications::UseCases::Publish do
         end
       end
     end
+
+    context 'when interest name is invalid' do
+      let(:interests) {['lovely-valid-interest', 'hey €€ ***']}
+
+      it 'warns an interest name is invalid' do
+        expect { send_notification }.to raise_error(
+          Pusher::PushNotifications::UseCases::Publish::PublishError
+        ).with_message(
+          "Invalid interest name \nMax 164 characters and can only contain ASCII upper/lower-case letters, numbers or one of _-=@,.:"
+        )
+      end
+    end
   end
 end

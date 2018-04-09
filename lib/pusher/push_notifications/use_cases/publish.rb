@@ -8,9 +8,19 @@ module Pusher
       class Publish
         include Caze
 
+        class PublishError < RuntimeError; end
+
         export :call, as: :publish
 
         def initialize(interests:, payload: {})
+          valid_interest_pattern = /^(_|\-|=|@|,|\.|:|[A-Z]|[a-z]|[0-9])*$/
+
+          interests.each do |interest|
+            if (interest_valid = !valid_interest_pattern.match(interest))
+              raise PublishError, "Invalid interest name \nMax 164 characters and can only contain ASCII upper/lower-case letters, numbers or one of _-=@,.:"
+            end
+          end
+
           @interests = interests
           @payload = payload
         end
