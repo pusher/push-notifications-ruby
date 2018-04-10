@@ -20,6 +20,7 @@ module Pusher
       def post(resource, payload = {})
         url = build_url(resource)
         body = payload.to_json
+
         RestClient::Request.execute(
           method: :post, url: url,
           payload: body, headers: headers
