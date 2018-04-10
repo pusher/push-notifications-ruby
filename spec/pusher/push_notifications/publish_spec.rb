@@ -51,5 +51,61 @@ RSpec.describe Pusher::PushNotifications::UseCases::Publish do
         end
       end
     end
+
+    context 'when interest name is invalid' do
+      let(:interests) {['lovely-valid-interest', 'hey €€ ***']}
+
+      it 'warns an interest name is invalid' do
+        expect { send_notification }.to raise_error(
+          Pusher::PushNotifications::UseCases::Publish::PublishError
+        ).with_message(
+          "Invalid interest name \nMax 164 characters and can only contain ASCII upper/lower-case letters, numbers or one of _-=@,.:"
+        )
+      end
+    end
+
+    context 'when no interests provided' do
+      let(:interests) {[]}
+
+      it 'warns to provide at least one interest' do
+        expect { send_notification }.to raise_error(
+          Pusher::PushNotifications::UseCases::Publish::PublishError
+        ).with_message('Must provide at least one interest')
+      end
+    end
+
+    context 'when 100 interests provided' do
+      int_array = (1..100).to_a.shuffle
+      test_interests = int_array.map do |num|
+        "interest-#{num.to_s}"
+      end
+
+      let(:interests) { test_interests }
+
+      it 'sends the notification' do
+        VCR.use_cassette('publishes/valid_interests') do
+          response = send_notification
+
+          expect(response).to be_ok
+        end
+      end
+    end
+
+     context 'when too many interests provided' do
+      int_array = (1..101).to_a.shuffle
+      test_interests = int_array.map do |num|
+        "interest-#{num.to_s}"
+      end
+
+      let(:interests) { test_interests }
+
+      it 'raises an error' do
+        VCR.use_cassette('publishes/valid_interests') do
+          expect { send_notification }.to raise_error(
+          Pusher::PushNotifications::UseCases::Publish::PublishError
+        ).with_message("Number of interests #{interests.length} exceeds maximum of 100")
+        end
+      end
+    end
   end
 end
