@@ -22,7 +22,7 @@ module Pusher
           end
 
           raise PublishError, 'Must provide at least one interest' if interests.length == 0
-          # raise PublishError, "Number of interests #{interests.length} exceeds maximum of 100" if interests.length > 100
+          raise PublishError, "Number of interests #{interests.length} exceeds maximum of 100" if interests.length > 100
 
           @interests = interests
           @payload = payload

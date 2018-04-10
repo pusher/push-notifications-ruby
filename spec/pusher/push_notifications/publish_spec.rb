@@ -90,5 +90,22 @@ RSpec.describe Pusher::PushNotifications::UseCases::Publish do
         end
       end
     end
+
+     context 'when too many interests provided' do
+      int_array = (1..101).to_a.shuffle
+      test_interests = int_array.map do |num|
+        "interest-#{num.to_s}"
+      end
+
+      let(:interests) { test_interests }
+
+      it 'raises an error' do
+        VCR.use_cassette('publishes/valid_interests') do
+          expect { send_notification }.to raise_error(
+          Pusher::PushNotifications::UseCases::Publish::PublishError
+        ).with_message("Number of interests #{interests.length} exceeds maximum of 100")
+        end
+      end
+    end
   end
 end
