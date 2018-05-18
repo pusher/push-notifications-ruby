@@ -26,7 +26,7 @@ module Pusher
           payload: body, headers: headers
         ) do |response|
           status = response.code
-          body = JSON.parse(response.body)
+          body = parse_response(response.body)
           Response.new(status, body, status == 200 ? true : false)
         end
       end
@@ -46,6 +46,12 @@ module Pusher
           accept: :json,
           Authorization: "Bearer #{secret_key}"
         }
+      end
+
+      def parse_response(response)
+        JSON.parse(response)
+      rescue JSON::ParserError => e
+        ""
       end
     end
   end
