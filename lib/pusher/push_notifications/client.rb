@@ -26,8 +26,12 @@ module Pusher
           payload: body, headers: headers
         ) do |response|
           status = response.code
-          body = parse_response(response.body)
-          Response.new(status, body, status == 200 ? true : false)
+          if json?(response.body)
+            body = JSON.parse(response.body)
+            Response.new(status, body, status == 200)
+          else
+            Response.new('Internal server error', nil, false)
+          end
         end
       end
 
@@ -48,10 +52,11 @@ module Pusher
         }
       end
 
-      def parse_response(response)
+      def json?(response)
         JSON.parse(response)
-      rescue JSON::ParserError => e
-        ""
+        true
+      rescue JSON::ParserError
+        return false
       end
     end
   end
