@@ -56,7 +56,7 @@ module Pusher
         JSON.parse(response)
         true
       rescue JSON::ParserError
-        return false
+        false
       end
     end
   end
