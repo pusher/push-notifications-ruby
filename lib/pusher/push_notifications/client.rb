@@ -30,7 +30,7 @@ module Pusher
             body = JSON.parse(response.body)
             Response.new(status, body, status == 200)
           else
-            Response.new('Internal server error', nil, false)
+            Response.new(500, nil, false)
           end
         end
       end
