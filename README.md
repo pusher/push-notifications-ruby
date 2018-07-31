@@ -1,9 +1,9 @@
-# Pusher Push Notifications Ruby Server SDK
+# Pusher Beams Ruby Server SDK
 
 [![Build Status](https://travis-ci.org/pusher/push-notifications-ruby.svg?branch=master)](https://travis-ci.org/pusher/push-notifications-ruby)
 [![Coverage Status](https://coveralls.io/repos/github/pusher/push-notifications-ruby/badge.svg?branch=update-sdk)](https://coveralls.io/github/pusher/push-notifications-ruby?branch=update-sdk)
 
-Push notifications using the Pusher system.
+Pusher Beams using the Pusher system.
 
 ## Installation
 
@@ -28,7 +28,7 @@ Pusher::PushNotifications.configure do |config|
 end
 ```
 
-Where `instance_id` and `secret_key` are the values of the instance you created in the push notifications dashboard
+Where `instance_id` and `secret_key` are the values of the instance you created in the Pusher Beams dashboard
 
 ## Usage
 
@@ -63,12 +63,12 @@ The return of this call is a ruby struct containing the http status code (`statu
 
 The errors statuses can be:
 
-HTTP Status | Reason
---- | ---
-401 | Incorrect secret key
-400 | Payload too big (10Kb limit), Payload invalid, Payload in a wrong schema, instance_id missing
-404 | Instance not found
-500 | Internal server error
+| HTTP Status | Reason                                                                                        |
+| ----------- | --------------------------------------------------------------------------------------------- |
+| 401         | Incorrect secret key                                                                          |
+| 400         | Payload too big (10Kb limit), Payload invalid, Payload in a wrong schema, instance_id missing |
+| 404         | Instance not found                                                                            |
+| 500         | Internal server error                                                                         |
 
 ## Development
 
