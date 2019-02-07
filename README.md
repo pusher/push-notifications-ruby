@@ -35,6 +35,8 @@ Where `instance_id` and `secret_key` are the values of the instance you created 
 After the configuration is done you can push notifications like this:
 
 ```ruby
+require 'pusher/push_notifications'
+
 data = {
   apns: {
     aps: {
