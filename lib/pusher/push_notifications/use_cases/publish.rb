@@ -10,7 +10,8 @@ module Pusher
 
         class PublishError < RuntimeError; end
 
-        export :call, as: :publish
+        export :publish, as: :publish
+        export :publish_to_interests, as: :publish_to_interests
 
         def initialize(interests:, payload: {})
           valid_interest_pattern = /^(_|\-|=|@|,|\.|:|[A-Z]|[a-z]|[0-9])*$/
@@ -28,7 +29,15 @@ module Pusher
           @payload = payload
         end
 
-        def call
+        # Publish the given payload to the specified interests.
+        # <b>DEPRECATED:</b> Please use <tt>publish_to_interests</tt> instead.
+        def publish
+          warn "[DEPRECATION] `publish` is deprecated.  Please use `publish_to_interests` instead."
+          publish_to_interests
+        end
+
+        # Publish the given payload to the specified interests.
+        def publish_to_interests
           data = { interests: interests }.merge!(payload)
           client.post('publishes', data)
         end

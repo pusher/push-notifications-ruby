@@ -13,6 +13,7 @@ module Pusher
     class PushError < RuntimeError; end
 
     has_use_case :publish, UseCases::Publish
+    has_use_case :publish_to_interests, UseCases::Publish
 
     class << self
       attr_reader :instance_id, :secret_key
