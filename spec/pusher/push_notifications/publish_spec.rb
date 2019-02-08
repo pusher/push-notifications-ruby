@@ -25,8 +25,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::Publish do
     }
   end
 
-  describe '#call' do
-    subject(:send_notification) { use_case.call }
+  describe '#publish_to_interests' do
+    subject(:send_notification) { use_case.publish_to_interests }
 
     context 'when payload is malformed' do
       let(:payload) do
