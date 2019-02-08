@@ -4,6 +4,7 @@ require 'caze'
 
 require_relative './push_notifications/client'
 require_relative './push_notifications/use_cases/publish'
+require_relative './push_notifications/use_cases/publish_to_users'
 require_relative './push_notifications/use_cases/delete_user'
 require_relative './push_notifications/version'
 
@@ -15,6 +16,7 @@ module Pusher
 
     has_use_case :publish, UseCases::Publish
     has_use_case :publish_to_interests, UseCases::Publish
+    has_use_case :publish_to_users, UseCases::PublishToUsers
     has_use_case :delete_user, UseCases::DeleteUser
 
     class << self
