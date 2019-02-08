@@ -14,14 +14,14 @@ module Pusher
 
         def initialize(users:, payload: {})
           users.each do |user|
-            if (user.length > max_user_id_length)
-              raise UsersPublishError, "User id length too long (expected fewer than #{max_user_id_length+1} characters)"
+            if user.length > max_user_id_length
+              raise UsersPublishError, "User id length too long (expected fewer than #{max_user_id_length + 1} characters)"
             end
           end
 
           raise UsersPublishError, 'Must supply at least one user id.' if users.count < 1
           raise UsersPublishError, "Number of user ids #{users.length} exceeds maximum of #{max_num_user_ids}." if users.length > max_num_user_ids
-          raise UsersPublishError, "Empty user ids are not valid." if users.include? ''
+          raise UsersPublishError, 'Empty user ids are not valid.' if users.include? ''
 
           @users = users
           @payload = payload
@@ -36,17 +36,18 @@ module Pusher
         private
 
         attr_reader :users, :payload
-        
+
         def max_num_user_ids
           1000
         end
 
+        # Separate this and reuse since it's used here and in delete user!
         def max_user_id_length
           164
         end
 
         def client
-          @_client ||= PushNotifications::Client.new
+          @client ||= PushNotifications::Client.new
         end
       end
     end

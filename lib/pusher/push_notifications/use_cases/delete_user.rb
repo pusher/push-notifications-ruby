@@ -13,7 +13,7 @@ module Pusher
         export :delete_user, as: :delete_user
 
         def initialize(user:)
-          raise UserDeletionError, 'User Id cannot be empty.' if user.length < 1
+          raise UserDeletionError, 'User Id cannot be empty.' if user.empty?
           raise UserDeletionError, "Number of user ids #{user.length} exceeds maximum of #{max_num_user_ids}." if user.length > max_user_id_length
 
           @user = user
@@ -27,13 +27,13 @@ module Pusher
         private
 
         attr_reader :user
-        
+
         def max_user_id_length
           164
         end
 
         def client
-          @_client ||= PushNotifications::Client.new
+          @client ||= PushNotifications::Client.new
         end
       end
     end

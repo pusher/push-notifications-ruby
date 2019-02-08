@@ -5,19 +5,18 @@ AllCops:
   TargetRubyVersion: 2.4.0
 
 Metrics/LineLength:
-  Max: 100
+  Enabled: false
 
 Metrics/MethodLength:
-  Exclude:
-    - 'spec/**/*.rb'
+  Enabled: false
 
-  Exclude:
-    - 'spec/**/*.rb'
+Metrics/AbcSize:
+  Enabled: false
 
 Metrics/ModuleLength:
   Exclude:
-    - 'spec/**/*.rb'
+    - "spec/**/*.rb"
 
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*.rb'
+    - "spec/**/*.rb"

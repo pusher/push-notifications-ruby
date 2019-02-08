@@ -17,12 +17,12 @@ module Pusher
           valid_interest_pattern = /^(_|\-|=|@|,|\.|:|[A-Z]|[a-z]|[0-9])*$/
 
           interests.each do |interest|
-            if (is_invalid_interest_name = !valid_interest_pattern.match(interest))
+            unless valid_interest_pattern.match?(interest)
               raise PublishError, "Invalid interest name \nMax 164 characters and can only contain ASCII upper/lower-case letters, numbers or one of _-=@,.:"
             end
           end
 
-          raise PublishError, 'Must provide at least one interest' if interests.length == 0
+          raise PublishError, 'Must provide at least one interest' if interests.empty?
           raise PublishError, "Number of interests #{interests.length} exceeds maximum of 100" if interests.length > 100
 
           @interests = interests
@@ -32,7 +32,7 @@ module Pusher
         # Publish the given payload to the specified interests.
         # <b>DEPRECATED:</b> Please use <tt>publish_to_interests</tt> instead.
         def publish
-          warn "[DEPRECATION] `publish` is deprecated.  Please use `publish_to_interests` instead."
+          warn '[DEPRECATION] `publish` is deprecated.  Please use `publish_to_interests` instead.'
           publish_to_interests
         end
 
@@ -47,7 +47,7 @@ module Pusher
         attr_reader :interests, :payload
 
         def client
-          @_client ||= PushNotifications::Client.new
+          @client ||= PushNotifications::Client.new
         end
       end
     end
