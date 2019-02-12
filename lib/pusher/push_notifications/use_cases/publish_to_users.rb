@@ -37,17 +37,16 @@ module Pusher
 
         attr_reader :users, :payload
 
-        def max_num_user_ids
-          1000
-        end
-
-        # Separate this and reuse since it's used here and in delete user!
-        def max_user_id_length
-          164
-        end
-
         def client
           @client ||= PushNotifications::Client.new
+        end
+
+        def max_user_id_length
+          PushNotifications::Pusher::MAX_USER_ID_LENGTH
+        end
+
+        def max_num_user_ids
+          PushNotifications::Pusher::MAX_NUM_USER_IDS
         end
       end
     end

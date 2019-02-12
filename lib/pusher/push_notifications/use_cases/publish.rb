@@ -18,7 +18,7 @@ module Pusher
 
           interests.each do |interest|
             unless valid_interest_pattern.match?(interest)
-              raise PublishError, "Invalid interest name \nMax 164 characters and can only contain ASCII upper/lower-case letters, numbers or one of _-=@,.:"
+              raise PublishError, "Invalid interest name \nMax #{max_user_id_length} characters and can only contain ASCII upper/lower-case letters, numbers or one of _-=@,.:"
             end
           end
 
@@ -48,6 +48,10 @@ module Pusher
 
         def client
           @client ||= PushNotifications::Client.new
+        end
+
+        def max_user_id_length
+          PushNotifications::Pusher::MAX_USER_ID_LENGTH
         end
       end
     end

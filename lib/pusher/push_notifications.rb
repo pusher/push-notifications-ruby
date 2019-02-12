@@ -7,6 +7,7 @@ require_relative './push_notifications/use_cases/publish'
 require_relative './push_notifications/use_cases/publish_to_users'
 require_relative './push_notifications/use_cases/delete_user'
 require_relative './push_notifications/version'
+require_relative './push_notifications/user_id'
 
 module Pusher
   module PushNotifications
