@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 require 'caze'
+require 'forwardable'
 
 module Pusher
   module PushNotifications
     module UseCases
       class Publish
         include Caze
+        extend Forwardable
 
         class PublishError < RuntimeError; end
 
@@ -14,6 +16,10 @@ module Pusher
         export :publish_to_interests, as: :publish_to_interests
 
         def initialize(interests:, payload: {})
+          @interests = interests
+          @payload = payload
+          @user_id = Pusher::PushNotifications::UserId.new
+
           valid_interest_pattern = /^(_|\-|=|@|,|\.|:|[A-Z]|[a-z]|[0-9])*$/
 
           interests.each do |interest|
@@ -24,9 +30,6 @@ module Pusher
 
           raise PublishError, 'Must provide at least one interest' if interests.empty?
           raise PublishError, "Number of interests #{interests.length} exceeds maximum of 100" if interests.length > 100
-
-          @interests = interests
-          @payload = payload
         end
 
         # Publish the given payload to the specified interests.
@@ -44,14 +47,11 @@ module Pusher
 
         private
 
-        attr_reader :interests, :payload
+        attr_reader :interests, :payload, :user_id
+        def_delegators :@user_id, :max_user_id_length
 
         def client
           @client ||= PushNotifications::Client.new
-        end
-
-        def max_user_id_length
-          PushNotifications::Pusher::MAX_USER_ID_LENGTH
         end
       end
     end

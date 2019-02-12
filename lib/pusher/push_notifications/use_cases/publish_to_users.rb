@@ -1,18 +1,24 @@
 # frozen_string_literal: true
 
 require 'caze'
+require 'forwardable'
 
 module Pusher
   module PushNotifications
     module UseCases
       class PublishToUsers
         include Caze
+        extend Forwardable
 
         class UsersPublishError < RuntimeError; end
 
         export :publish_to_users, as: :publish_to_users
 
         def initialize(users:, payload: {})
+          @users = users
+          @user_id = Pusher::PushNotifications::UserId.new
+          @payload = payload
+
           users.each do |user|
             if user.length > max_user_id_length
               raise UsersPublishError, "User id length too long (expected fewer than #{max_user_id_length + 1} characters)"
@@ -22,9 +28,6 @@ module Pusher
           raise UsersPublishError, 'Must supply at least one user id.' if users.count < 1
           raise UsersPublishError, "Number of user ids #{users.length} exceeds maximum of #{max_num_user_ids}." if users.length > max_num_user_ids
           raise UsersPublishError, 'Empty user ids are not valid.' if users.include? ''
-
-          @users = users
-          @payload = payload
         end
 
         # Publish the given payload to the specified users.
@@ -35,18 +38,11 @@ module Pusher
 
         private
 
-        attr_reader :users, :payload
+        attr_reader :users, :payload, :user_id
+        def_delegators :@user_id, :max_user_id_length, :max_num_user_ids
 
         def client
           @client ||= PushNotifications::Client.new
-        end
-
-        def max_user_id_length
-          PushNotifications::Pusher::MAX_USER_ID_LENGTH
-        end
-
-        def max_num_user_ids
-          PushNotifications::Pusher::MAX_NUM_USER_IDS
         end
       end
     end
