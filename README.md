@@ -60,7 +60,7 @@ Pusher::PushNotifications.publish_to_interests(interests: ['hello'], payload: da
 # Publish the given 'data' to the specified users.
 Pusher::PushNotifications.publish_to_users(users: ['jonathan', 'jordan', 'luís', 'luka', 'mina'], payload: data)
 
-# // Authenticate User
+# Authenticate User
 Pusher::PushNotifications.generate_token(user: 'Elmo')
 
 # Delete User
