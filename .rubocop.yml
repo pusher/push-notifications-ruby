@@ -20,3 +20,4 @@ Metrics/ModuleLength:
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*.rb"
+    - "pusher-push-notifications.gemspec"

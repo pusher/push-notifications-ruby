@@ -3,12 +3,13 @@ PATH
   specs:
     pusher-push-notifications (1.0.0)
       caze
+      jwt
       rest-client
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.0)
+    activesupport (5.2.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -24,7 +25,7 @@ GEM
       simplecov
       url
     coderay (1.1.2)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.4)
     coveralls (0.8.21)
       json (>= 1.8, < 3)
       simplecov (~> 0.14.1)
@@ -41,13 +42,14 @@ GEM
     hashdiff (0.3.7)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.0.1)
+    i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     json (2.1.0)
+    jwt (2.1.0)
     method_source (0.9.0)
-    mime-types (3.1)
+    mime-types (3.2.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0521)
+    mime-types-data (3.2018.0812)
     minitest (5.11.3)
     netrc (0.11.0)
     parallel (1.12.1)
