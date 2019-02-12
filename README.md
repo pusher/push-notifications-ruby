@@ -54,7 +54,17 @@ data = {
   }
 }
 
-Pusher::PushNotifications.publish(interests: ['hello'], payload: data)
+# Publish the given 'data' to the specified interests.
+Pusher::PushNotifications.publish_to_interests(interests: ['hello'], payload: data)
+
+# Publish the given 'data' to the specified users.
+Pusher::PushNotifications.publish_to_users(users: ['jonathan', 'jordan', 'luís', 'luka', 'mina'], payload: data)
+
+# // Authenticate User
+Pusher::PushNotifications.generate_token(user: 'Elmo')
+
+# Delete User
+Pusher::PushNotifications.delete_user(user: 'Elmo')
 ```
 
 The return of this call is a ruby struct containing the http status code (`status`) the response body (`content`) and an `ok?` attribute saying if the notification was successful or not.
