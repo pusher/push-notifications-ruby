@@ -5,45 +5,46 @@ http_interactions:
     uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/publish_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/publishes
     body:
       encoding: UTF-8
-      string: '{"interests":["hello"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
-        world!"}}},"fcm":{"notification":{"title":"Hello","body":"Hello, world!"}}}'
+      string: '{"invalid":"payload"}'
     headers:
       Accept:
       - application/json
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.4.2p198
+      - rest-client/2.0.2 (darwin17.5.0 x86_64) ruby/2.3.0p0
       Content-Type:
       - application/json
       Authorization:
       - Bearer F8AC0B756E50DF235F642D6F0DC2CDE0328CD9184B3874C5E91AB2189BB722FE
+      X-Pusher-Library:
+      - push-notifications-server-ruby 1.0.0
       Content-Length:
-      - '153'
+      - '21'
       Host:
       - 1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com
   response:
     status:
-      code: 200
-      message: OK
+      code: 422
+      message: Unprocessable Entity
     headers:
       Server:
       - Cowboy
       Connection:
       - keep-alive
-      Date:
-      - Tue, 19 Dec 2017 15:46:44 GMT
-      Content-Length:
-      - '59'
       Content-Type:
-      - text/plain; charset=utf-8
+      - application/json
+      Date:
+      - Tue, 12 Feb 2019 17:50:49 GMT
+      Content-Length:
+      - '75'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"publishId":"pubid-9fa9e124-c5ef-4c58-9a2a-34da02051c3c"}
+      string: '{"error":"Bad Request","description":"`interests`: interests is required"}
 
 '
     http_version: 
-  recorded_at: Tue, 19 Dec 2017 15:46:44 GMT
+  recorded_at: Tue, 12 Feb 2019 17:50:49 GMT
 recorded_with: VCR 3.0.3
