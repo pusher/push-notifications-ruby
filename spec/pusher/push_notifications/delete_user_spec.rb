@@ -23,7 +23,7 @@ RSpec.describe Pusher::PushNotifications::UseCases::DeleteUser do
     end
 
     context 'when user id is too long' do
-      let(:user) { "a" * 165 }
+      let(:user) { 'a' * 165 }
 
       it 'user deletion request will fail' do
         expect { delete_user }.to raise_error(
@@ -36,7 +36,7 @@ RSpec.describe Pusher::PushNotifications::UseCases::DeleteUser do
 
     context 'when user id is valid' do
       it 'will delete the user' do
-        VCR.use_cassette("delete/user") do
+        VCR.use_cassette('delete/user') do
           response = delete_user
 
           expect(response).to be_ok

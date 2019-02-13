@@ -186,7 +186,7 @@ RSpec.describe Pusher::PushNotifications::Client do
     end
 
     context 'when user id is too long' do
-      let(:user) { "a" * 165 }
+      let(:user) { 'a' * 165 }
 
       it 'return 400' do
         VCR.use_cassette('delete/user/id_too_long') do
