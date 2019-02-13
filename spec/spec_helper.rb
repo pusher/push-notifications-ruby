@@ -9,13 +9,17 @@ require 'pusher/push_notifications'
 require 'vcr'
 require 'webmock'
 
+if ENV['COVERAGE']
+  require 'coveralls'
+  Coveralls.wear!
+end
+
+require 'simplecov'
+SimpleCov.start
+
 if ENV['CI'] == 'true'
   require 'codecov'
-  require 'coveralls'
-  require 'simplecov'
-  SimpleCov.start
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
-  Coveralls.wear!
 end
 
 VCR.configure do |config|
