@@ -5,7 +5,7 @@ http_interactions:
     uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/publish_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/publishes/users
     body:
       encoding: UTF-8
-      string: '{"users":["user-29","user-55","user-93","user-3","user-11","user-84","user-26","user-20","user-97","user-58","user-65","user-87","user-81","user-95","user-48","user-23","user-2","user-92","user-82","user-80","user-60","user-77","user-90","user-39","user-75","user-62","user-37","user-16","user-94","user-19","user-88","user-73","user-15","user-9","user-33","user-63","user-70","user-69","user-1","user-22","user-78","user-24","user-59","user-68","user-51","user-13","user-79","user-76","user-43","user-7","user-96","user-66","user-17","user-6","user-38","user-91","user-34","user-64","user-21","user-28","user-32","user-72","user-57","user-56","user-5","user-85","user-67","user-47","user-89","user-71","user-44","user-12","user-36","user-83","user-8","user-61","user-49","user-31","user-41","user-14","user-18","user-53","user-52","user-42","user-74","user-46","user-50","user-99","user-4","user-45","user-100","user-30","user-27","user-25","user-10","user-98","user-35","user-54","user-40","user-86"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
+      string: '{"users":["user-39","user-34","user-54","user-53","user-2","user-100","user-64","user-18","user-9","user-13","user-46","user-91","user-78","user-56","user-93","user-38","user-45","user-66","user-10","user-3","user-5","user-48","user-28","user-70","user-85","user-49","user-23","user-77","user-90","user-60","user-31","user-65","user-16","user-81","user-73","user-83","user-50","user-24","user-22","user-42","user-14","user-4","user-15","user-69","user-6","user-87","user-76","user-61","user-29","user-96","user-97","user-57","user-52","user-79","user-75","user-95","user-47","user-21","user-62","user-37","user-63","user-36","user-30","user-20","user-71","user-8","user-94","user-55","user-99","user-92","user-82","user-86","user-17","user-32","user-84","user-89","user-12","user-58","user-27","user-11","user-25","user-80","user-72","user-74","user-68","user-98","user-41","user-35","user-1","user-51","user-40","user-7","user-43","user-19","user-59","user-26","user-88","user-33","user-67","user-44"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
         world!"}}},"fcm":{"notification":{"title":"Hello","body":"Hello, world!"}}}'
     headers:
       Accept:
@@ -34,7 +34,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 12 Feb 2019 17:50:50 GMT
+      - Wed, 13 Feb 2019 11:53:23 GMT
       Content-Length:
       - '59'
       Content-Type:
@@ -43,9 +43,9 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"publishId":"pubid-5a4b7584-136e-461a-a14d-3df8c95d046a"}
+      string: '{"publishId":"pubid-1d95b2af-b65a-47b2-9bc8-8ff80d475d99"}
 
 '
     http_version: 
-  recorded_at: Tue, 12 Feb 2019 17:50:51 GMT
+  recorded_at: Wed, 13 Feb 2019 11:53:23 GMT
 recorded_with: VCR 3.0.3

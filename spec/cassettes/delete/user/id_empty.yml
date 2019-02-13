@@ -1,12 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/publish_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/publishes/users
+    method: delete
+    uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/user_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/users/
     body:
-      encoding: UTF-8
-      string: '{"users":["jonathan","jordan","luis","luka","mina"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
-        world!"}}},"fcm":{"notification":{"title":"Hello","body":"Hello, world!"}}}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json
@@ -20,30 +19,30 @@ http_interactions:
       - Bearer F8AC0B756E50DF235F642D6F0DC2CDE0328CD9184B3874C5E91AB2189BB722FE
       X-Pusher-Library:
       - push-notifications-server-ruby 1.0.0
-      Content-Length:
-      - '182'
       Host:
       - 1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Server:
       - Cowboy
       Connection:
       - keep-alive
+      Content-Type:
+      - text/plain; charset=utf-8
+      X-Content-Type-Options:
+      - nosniff
       Date:
       - Wed, 13 Feb 2019 11:53:21 GMT
       Content-Length:
-      - '59'
-      Content-Type:
-      - text/plain; charset=utf-8
+      - '19'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"publishId":"pubid-94aa9838-1d86-4a24-ab88-0b98e02c184c"}
+      string: '404 page not found
 
 '
     http_version: 

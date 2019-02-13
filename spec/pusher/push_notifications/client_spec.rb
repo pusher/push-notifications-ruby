@@ -165,4 +165,46 @@ RSpec.describe Pusher::PushNotifications::Client do
       end
     end
   end
+  describe '#delete_user' do
+    let(:user) { 'Elmo' }
+    let(:resource) { "users/#{user}" }
+    let(:instance_id) { ENV['PUSHER_INSTANCE_ID'] }
+    let(:secret_key) { ENV['PUSHER_SECRET_KEY'] }
+
+    subject(:delete_user) { client.delete(resource) }
+
+    context 'when user id is empty' do
+      let(:user) { '' }
+
+      it 'return 404' do
+        VCR.use_cassette('delete/user/id_empty') do
+          response = delete_user
+
+          expect(response.status).to eq(404)
+        end
+      end
+    end
+
+    context 'when user id is too long' do
+      let(:user) { "a" * 165 }
+
+      it 'return 400' do
+        VCR.use_cassette('delete/user/id_too_long') do
+          response = delete_user
+
+          expect(response.status).to eq(400)
+        end
+      end
+    end
+
+    context 'when user id is valid' do
+      it 'returns 200' do
+        VCR.use_cassette('delete/user') do
+          response = delete_user
+
+          expect(response.status).to eq(200)
+        end
+      end
+    end
+  end
 end
