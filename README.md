@@ -78,7 +78,7 @@ The errors statuses can be:
 | HTTP Status | Reason                                                                                        |
 | ----------- | --------------------------------------------------------------------------------------------- |
 | 401         | Incorrect secret key                                                                          |
-| 400         | Payload too big (10Kb limit), Payload invalid, Payload in a wrong schema, instance_id missing |
+| 422         | Payload too big (10Kb limit), Payload invalid, Payload in a wrong schema, instance_id missing |
 | 404         | Instance not found                                                                            |
 | 500         | Internal server error                                                                         |
 
