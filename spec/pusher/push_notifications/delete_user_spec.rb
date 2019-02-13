@@ -29,7 +29,7 @@ RSpec.describe Pusher::PushNotifications::UseCases::DeleteUser do
         expect { delete_user }.to raise_error(
           Pusher::PushNotifications::UseCases::DeleteUser::UserDeletionError
         ).with_message(
-          'User id length too long (expected fewer than 165 characters'
+          'User id length too long (expected fewer than 165 characters)'
         )
       end
     end
