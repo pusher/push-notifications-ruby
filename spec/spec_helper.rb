@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-if ENV['COVERAGE']
-  require 'coveralls'
-  Coveralls.wear!
-end
-
 require 'dotenv'
 Dotenv.load
 
@@ -14,12 +9,13 @@ require 'pusher/push_notifications'
 require 'vcr'
 require 'webmock'
 
-require 'simplecov'
-SimpleCov.start
-
 if ENV['CI'] == 'true'
   require 'codecov'
+  require 'coveralls'
+  require 'simplecov'
+  SimpleCov.start
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  Coveralls.wear!
 end
 
 VCR.configure do |config|
