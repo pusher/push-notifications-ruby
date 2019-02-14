@@ -70,7 +70,7 @@ RSpec.describe Pusher::PushNotifications::UseCases::PublishToUsers do
         expect { publish_to_users }.to raise_error(
           Pusher::PushNotifications::UseCases::PublishToUsers::UsersPublishError
         ).with_message(
-          'Empty user ids are not valid.'
+          'User Id cannot be empty.'
         )
       end
     end
