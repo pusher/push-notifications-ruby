@@ -19,7 +19,7 @@ http_interactions:
       Authorization:
       - Bearer F8AC0B756E50DF235F642D6F0DC2CDE0328CD9184B3874C5E91AB2189BB722FE
       X-Pusher-Library:
-      - push-notifications-server-ruby 1.0.0
+      - pusher-push-notifications-ruby 1.0.0
       Content-Length:
       - '153'
       Host:
@@ -36,7 +36,7 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 13 Feb 2019 11:53:19 GMT
+      - Wed, 20 Feb 2019 16:19:04 GMT
       Content-Length:
       - '75'
       Via:
@@ -47,5 +47,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 13 Feb 2019 11:53:19 GMT
+  recorded_at: Wed, 20 Feb 2019 16:19:03 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/user_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/users/Elmo
+    uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/customer_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/users/Elmo
     body:
       encoding: US-ASCII
       string: ''
@@ -18,7 +18,7 @@ http_interactions:
       Authorization:
       - Bearer F8AC0B756E50DF235F642D6F0DC2CDE0328CD9184B3874C5E91AB2189BB722FE
       X-Pusher-Library:
-      - push-notifications-server-ruby 1.0.0
+      - pusher-push-notifications-ruby 1.0.0
       Host:
       - 1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com
   response:
@@ -31,7 +31,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 13 Feb 2019 11:53:22 GMT
+      - Wed, 20 Feb 2019 16:19:07 GMT
       Content-Length:
       - '0'
       Via:
@@ -40,5 +40,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 13 Feb 2019 11:53:22 GMT
+  recorded_at: Wed, 20 Feb 2019 16:19:06 GMT
 recorded_with: VCR 3.0.3

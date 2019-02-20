@@ -5,7 +5,7 @@ http_interactions:
     uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/publish_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/publishes
     body:
       encoding: UTF-8
-      string: '{"interests":["interest-79","interest-10","interest-87","interest-84","interest-78","interest-29","interest-61","interest-100","interest-7","interest-70","interest-3","interest-88","interest-56","interest-45","interest-24","interest-98","interest-32","interest-28","interest-39","interest-43","interest-93","interest-9","interest-46","interest-4","interest-74","interest-13","interest-66","interest-82","interest-99","interest-51","interest-83","interest-21","interest-12","interest-55","interest-8","interest-95","interest-71","interest-16","interest-60","interest-14","interest-6","interest-47","interest-11","interest-48","interest-64","interest-37","interest-36","interest-41","interest-89","interest-91","interest-85","interest-76","interest-80","interest-65","interest-26","interest-44","interest-53","interest-17","interest-34","interest-2","interest-22","interest-50","interest-63","interest-81","interest-25","interest-67","interest-68","interest-31","interest-96","interest-20","interest-73","interest-23","interest-57","interest-58","interest-40","interest-42","interest-69","interest-1","interest-18","interest-77","interest-54","interest-97","interest-27","interest-15","interest-59","interest-35","interest-19","interest-5","interest-90","interest-62","interest-49","interest-72","interest-30","interest-86","interest-52","interest-38","interest-75","interest-92","interest-94","interest-33"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
+      string: '{"interests":["interest-61","interest-98","interest-81","interest-73","interest-53","interest-6","interest-79","interest-75","interest-7","interest-39","interest-8","interest-93","interest-57","interest-64","interest-11","interest-91","interest-65","interest-23","interest-19","interest-94","interest-60","interest-48","interest-40","interest-42","interest-24","interest-72","interest-20","interest-10","interest-26","interest-86","interest-29","interest-85","interest-30","interest-67","interest-4","interest-31","interest-9","interest-68","interest-51","interest-3","interest-62","interest-71","interest-95","interest-92","interest-34","interest-33","interest-16","interest-1","interest-28","interest-99","interest-56","interest-74","interest-84","interest-66","interest-80","interest-69","interest-25","interest-13","interest-35","interest-87","interest-44","interest-70","interest-17","interest-100","interest-43","interest-77","interest-88","interest-96","interest-58","interest-22","interest-78","interest-59","interest-82","interest-18","interest-90","interest-55","interest-2","interest-5","interest-54","interest-27","interest-38","interest-15","interest-50","interest-49","interest-89","interest-97","interest-76","interest-45","interest-63","interest-83","interest-52","interest-37","interest-14","interest-46","interest-41","interest-21","interest-47","interest-32","interest-12","interest-36"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
         world!"}}},"fcm":{"notification":{"title":"Hello","body":"Hello, world!"}}}'
     headers:
       Accept:
@@ -19,7 +19,7 @@ http_interactions:
       Authorization:
       - Bearer F8AC0B756E50DF235F642D6F0DC2CDE0328CD9184B3874C5E91AB2189BB722FE
       X-Pusher-Library:
-      - push-notifications-server-ruby 1.0.0
+      - pusher-push-notifications-ruby 1.0.0
       Content-Length:
       - '1537'
       Host:
@@ -34,7 +34,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 13 Feb 2019 11:53:23 GMT
+      - Wed, 20 Feb 2019 16:19:07 GMT
       Content-Length:
       - '59'
       Content-Type:
@@ -43,9 +43,9 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"publishId":"pubid-70561b05-68da-4e41-8ed7-ef6c04a4a43a"}
+      string: '{"publishId":"pubid-f0595130-aabc-48cb-8af8-826c3d4a6fe0"}
 
 '
     http_version: 
-  recorded_at: Wed, 13 Feb 2019 11:53:23 GMT
+  recorded_at: Wed, 20 Feb 2019 16:19:06 GMT
 recorded_with: VCR 3.0.3
