@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 require 'caze'
-require 'forwardable'
 
 module Pusher
   module PushNotifications
     module UseCases
       class GenerateToken
         include Caze
-        extend Forwardable
 
         class GenerateTokenError < RuntimeError; end
 
@@ -19,9 +17,9 @@ module Pusher
           @user_id = Pusher::PushNotifications::UserId.new
 
           raise GenerateTokenError, 'User Id cannot be empty.' if user.empty?
-          if user.length > max_user_id_length
+          if user.length > UserId::MAX_USER_ID_LENGTH
             raise GenerateTokenError, 'User id length too long ' \
-            "(expected fewer than #{max_user_id_length + 1} characters)"
+            "(expected fewer than #{UserId::MAX_USER_ID_LENGTH + 1} characters)"
           end
         end
 
@@ -32,8 +30,7 @@ module Pusher
 
         private
 
-        attr_reader :user, :user_id
-        def_delegators :@user_id, :max_user_id_length
+        attr_reader :user
 
         def jwt_token
           @jwt_token ||= PushNotifications::Token.new

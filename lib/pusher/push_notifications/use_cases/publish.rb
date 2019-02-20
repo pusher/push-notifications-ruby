@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 require 'caze'
-require 'forwardable'
 
 module Pusher
   module PushNotifications
     module UseCases
       class Publish
         include Caze
-        extend Forwardable
 
         class PublishError < RuntimeError; end
 
@@ -25,7 +23,7 @@ module Pusher
           interests.each do |interest|
             next if valid_interest_pattern.match?(interest)
             raise PublishError,
-                  "Invalid interest name \nMax #{max_user_id_length}" \
+                  "Invalid interest name \nMax #{UserId::MAX_USER_ID_LENGTH}" \
                   ' characters and can only contain ASCII upper/lower-case' \
                   ' letters, numbers or one of _-=@,.:'
           end
@@ -55,8 +53,7 @@ Please use `publish_to_interests` instead."
 
         private
 
-        attr_reader :interests, :payload, :user_id
-        def_delegators :@user_id, :max_user_id_length
+        attr_reader :interests, :payload
 
         def client
           @client ||= PushNotifications::Client.new

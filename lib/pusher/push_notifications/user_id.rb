@@ -3,13 +3,9 @@
 module Pusher
   module PushNotifications
     class UserId
-      def max_user_id_length
-        164
-      end
+      MAX_USER_ID_LENGTH = 164
 
-      def max_num_user_ids
-        1000
-      end
+      MAX_NUM_USER_IDS =  1000
     end
   end
 end
