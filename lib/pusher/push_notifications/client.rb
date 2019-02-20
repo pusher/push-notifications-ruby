@@ -71,7 +71,7 @@ module Pusher
           accept: :json,
           Authorization: "Bearer #{secret_key}",
           'X-Pusher-Library':
-          'pusher-push-notifications-server-ruby ' \
+          'pusher-push-notifications-ruby ' \
           "#{Pusher::PushNotifications::VERSION}"
         }
       end
