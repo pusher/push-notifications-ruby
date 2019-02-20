@@ -33,8 +33,8 @@ module Pusher
         end
       end
 
-      def delete(resource)
-        url = build_users_url(resource)
+      def delete(user)
+        url = build_users_url(user)
 
         RestClient::Request.execute(
           method: :delete, url: url,
