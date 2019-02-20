@@ -73,14 +73,7 @@ The return of this call is a ruby struct containing the http status code (`statu
 
 ## Errors
 
-The errors statuses can be:
-
-| HTTP Status | Reason                                                                                        |
-| ----------- | --------------------------------------------------------------------------------------------- |
-| 401         | Incorrect secret key                                                                          |
-| 422         | Payload too big (10Kb limit), Payload invalid, Payload in a wrong schema, instance_id missing |
-| 404         | Instance not found                                                                            |
-| 500         | Internal server error                                                                         |
+All available error responses can be be found [here](https://docs.pusher.com/beams/reference/publish-api#error-responses).
 
 ## Development
 
