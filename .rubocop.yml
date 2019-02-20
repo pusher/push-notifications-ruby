@@ -5,6 +5,10 @@ AllCops:
   TargetRubyVersion: 2.4.0
 
 Metrics/LineLength:
+  Enabled:
+    Max: 80
+
+Style/GuardClause:
   Enabled: false
 
 Metrics/MethodLength:

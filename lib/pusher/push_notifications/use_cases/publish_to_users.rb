@@ -23,12 +23,18 @@ module Pusher
             raise UsersPublishError, 'User Id cannot be empty.' if user.empty?
 
             if user.length > max_user_id_length
-              raise UsersPublishError, "User id length too long (expected fewer than #{max_user_id_length + 1} characters)"
+              raise UsersPublishError, 'User id length too long ' \
+              "(expected fewer than #{max_user_id_length + 1} characters)"
             end
           end
 
-          raise UsersPublishError, 'Must supply at least one user id.' if users.count < 1
-          raise UsersPublishError, "Number of user ids #{users.length} exceeds maximum of #{max_num_user_ids}." if users.length > max_num_user_ids
+          if users.count < 1
+            raise UsersPublishError, 'Must supply at least one user id.'
+          end
+          if users.length > max_num_user_ids
+            raise UsersPublishError, "Number of user ids #{users.length} "\
+            "exceeds maximum of #{max_num_user_ids}."
+          end
         end
 
         # Publish the given payload to the specified users.

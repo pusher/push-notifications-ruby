@@ -56,7 +56,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::PublishToUsers do
 
       it 'warns an user id array should not be empty' do
         expect { publish_to_users }.to raise_error(
-          Pusher::PushNotifications::UseCases::PublishToUsers::UsersPublishError
+          Pusher::PushNotifications::UseCases::
+          PublishToUsers::UsersPublishError
         ).with_message(
           'Must supply at least one user id.'
         )
@@ -68,7 +69,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::PublishToUsers do
 
       it 'warns an user id is invalid' do
         expect { publish_to_users }.to raise_error(
-          Pusher::PushNotifications::UseCases::PublishToUsers::UsersPublishError
+          Pusher::PushNotifications::UseCases::
+          PublishToUsers::UsersPublishError
         ).with_message(
           'User Id cannot be empty.'
         )
@@ -81,7 +83,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::PublishToUsers do
 
       it 'warns an user id is invalid' do
         expect { publish_to_users }.to raise_error(
-          Pusher::PushNotifications::UseCases::PublishToUsers::UsersPublishError
+          Pusher::PushNotifications::UseCases::
+          PublishToUsers::UsersPublishError
         ).with_message(
           'User id length too long (expected fewer than 165 characters)'
         )
@@ -116,8 +119,10 @@ RSpec.describe Pusher::PushNotifications::UseCases::PublishToUsers do
       it 'raises an error' do
         VCR.use_cassette('publishes/users/valid_users') do
           expect { publish_to_users }.to raise_error(
-            Pusher::PushNotifications::UseCases::PublishToUsers::UsersPublishError
-          ).with_message("Number of user ids #{test_users.length} exceeds maximum of 1000.")
+            Pusher::PushNotifications::UseCases::
+            PublishToUsers::UsersPublishError
+          ).with_message("Number of user ids #{test_users.length} \
+exceeds maximum of 1000.")
         end
       end
     end

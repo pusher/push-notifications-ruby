@@ -32,12 +32,16 @@ module Pusher
       end
 
       def instance_id=(instance_id)
-        raise PushError, 'Invalid instance id' if instance_id.nil? || instance_id.delete(' ').empty?
+        if instance_id.nil? || instance_id.delete(' ').empty?
+          raise PushError, 'Invalid instance id'
+        end
         @instance_id = instance_id
       end
 
       def secret_key=(secret_key)
-        raise PushError, 'Invalid secret key' if secret_key.nil? || secret_key.delete(' ').empty?
+        if secret_key.nil? || secret_key.delete(' ').empty?
+          raise PushError, 'Invalid secret key'
+        end
         @secret_key = secret_key
       end
     end

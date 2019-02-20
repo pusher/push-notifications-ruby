@@ -3,7 +3,9 @@
 require 'spec_helper'
 
 RSpec.describe Pusher::PushNotifications::UseCases::Publish do
-  subject(:use_case) { described_class.new(interests: interests, payload: payload) }
+  subject(:use_case) do
+    described_class.new(interests: interests, payload: payload)
+  end
 
   let(:interests) { ['hello'] }
   let(:payload) do
@@ -58,9 +60,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::Publish do
       it 'warns an interest name is invalid' do
         expect { publish_to_interests }.to raise_error(
           Pusher::PushNotifications::UseCases::Publish::PublishError
-        ).with_message(
-          "Invalid interest name \nMax 164 characters and can only contain ASCII upper/lower-case letters, numbers or one of _-=@,.:"
-        )
+        ).with_message("Invalid interest name \nMax 164 characters and \
+can only contain ASCII upper/lower-case letters, numbers or one of _-=@,.:")
       end
     end
 
@@ -103,7 +104,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::Publish do
         VCR.use_cassette('publishes/interests/valid_interests') do
           expect { publish_to_interests }.to raise_error(
             Pusher::PushNotifications::UseCases::Publish::PublishError
-          ).with_message("Number of interests #{interests.length} exceeds maximum of 100")
+          ).with_message("Number of interests #{interests.length} \
+exceeds maximum of 100")
         end
       end
     end

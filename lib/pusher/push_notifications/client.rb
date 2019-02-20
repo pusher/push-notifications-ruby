@@ -56,11 +56,13 @@ module Pusher
       def_delegators :@config, :instance_id, :secret_key
 
       def build_publish_url(resource)
-        "https://#{instance_id}.pushnotifications.pusher.com/publish_api/v1/instances/#{instance_id}/#{resource}"
+        "https://#{instance_id}.pushnotifications.pusher.com/" \
+        "publish_api/v1/instances/#{instance_id}/#{resource}"
       end
 
       def build_users_url(resource)
-        "https://#{instance_id}.pushnotifications.pusher.com/user_api/v1/instances/#{instance_id}/#{resource}"
+        "https://#{instance_id}.pushnotifications.pusher.com/" \
+        "user_api/v1/instances/#{instance_id}/#{resource}"
       end
 
       def headers
@@ -68,7 +70,9 @@ module Pusher
           content_type: 'application/json',
           accept: :json,
           Authorization: "Bearer #{secret_key}",
-          'X-Pusher-Library': "push-notifications-server-ruby #{Pusher::PushNotifications::VERSION}"
+          'X-Pusher-Library':
+          'pusher-push-notifications-server-ruby ' \
+          "#{Pusher::PushNotifications::VERSION}"
         }
       end
 

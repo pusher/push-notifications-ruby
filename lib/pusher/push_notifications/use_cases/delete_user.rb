@@ -19,10 +19,14 @@ module Pusher
           @user_id = Pusher::PushNotifications::UserId.new
 
           raise UserDeletionError, 'User Id cannot be empty.' if user.empty?
-          raise UserDeletionError, "User id length too long (expected fewer than #{max_user_id_length + 1} characters)" if user.length > max_user_id_length
+          if user.length > max_user_id_length
+            raise UserDeletionError, 'User id length too long ' \
+            "(expected fewer than #{max_user_id_length + 1} characters)"
+          end
         end
 
-        # Contacts the Beams service to remove all the devices of the given user.
+        # Contacts the Beams service
+        # to remove all the devices of the given user.
         def delete_user
           client.delete("users/#{user}")
         end

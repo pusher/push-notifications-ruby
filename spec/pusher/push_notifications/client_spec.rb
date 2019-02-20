@@ -3,7 +3,9 @@
 RSpec.describe Pusher::PushNotifications::Client do
   subject(:client) { described_class.new(config: config) }
 
-  let(:config) { double(:config, instance_id: instance_id, secret_key: secret_key) }
+  let(:config) do
+    double(:config, instance_id: instance_id, secret_key: secret_key)
+  end
 
   describe '#post' do
     subject(:send_post) { client.post(resource, body) }

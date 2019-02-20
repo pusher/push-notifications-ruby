@@ -23,19 +23,27 @@ module Pusher
           valid_interest_pattern = /^(_|\-|=|@|,|\.|:|[A-Z]|[a-z]|[0-9])*$/
 
           interests.each do |interest|
-            unless valid_interest_pattern.match?(interest)
-              raise PublishError, "Invalid interest name \nMax #{max_user_id_length} characters and can only contain ASCII upper/lower-case letters, numbers or one of _-=@,.:"
-            end
+            next if valid_interest_pattern.match?(interest)
+            raise PublishError,
+                  "Invalid interest name \nMax #{max_user_id_length}" \
+                  ' characters and can only contain ASCII upper/lower-case' \
+                  ' letters, numbers or one of _-=@,.:'
           end
 
-          raise PublishError, 'Must provide at least one interest' if interests.empty?
-          raise PublishError, "Number of interests #{interests.length} exceeds maximum of 100" if interests.length > 100
+          if interests.empty?
+            raise PublishError, 'Must provide at least one interest'
+          end
+          if interests.length > 100
+            raise PublishError, "Number of interests #{interests.length}" \
+            ' exceeds maximum of 100'
+          end
         end
 
         # Publish the given payload to the specified interests.
         # <b>DEPRECATED:</b> Please use <tt>publish_to_interests</tt> instead.
         def publish
-          warn '[DEPRECATION] `publish` is deprecated.  Please use `publish_to_interests` instead.'
+          warn "[DEPRECATION] `publish` is deprecated. \
+Please use `publish_to_interests` instead."
           publish_to_interests
         end
 

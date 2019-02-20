@@ -19,7 +19,10 @@ module Pusher
           @user_id = Pusher::PushNotifications::UserId.new
 
           raise GenerateTokenError, 'User Id cannot be empty.' if user.empty?
-          raise GenerateTokenError, "User id length too long (expected fewer than #{max_user_id_length + 1} characters)" if user.length > max_user_id_length
+          if user.length > max_user_id_length
+            raise GenerateTokenError, 'User id length too long ' \
+            "(expected fewer than #{max_user_id_length + 1} characters)"
+          end
         end
 
         # Creates a signed JWT for a user id.
