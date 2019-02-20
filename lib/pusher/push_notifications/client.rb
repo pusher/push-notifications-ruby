@@ -62,7 +62,7 @@ module Pusher
 
       def build_users_url(resource)
         "https://#{instance_id}.pushnotifications.pusher.com/" \
-        "user_api/v1/instances/#{instance_id}/#{resource}"
+        "customer_api/v1/instances/#{instance_id}/#{resource}"
       end
 
       def headers
