@@ -26,7 +26,7 @@ module Pusher
         # Contacts the Beams service
         # to remove all the devices of the given user.
         def delete_user
-          client.delete("users/#{user}")
+          client.delete(user)
         end
 
         private

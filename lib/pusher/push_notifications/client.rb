@@ -34,7 +34,9 @@ module Pusher
       end
 
       def delete(user)
-        url = build_users_url(user)
+        url_encoded_user_id = CGI.escape(user)
+        url = build_users_url(url_encoded_user_id)
+        puts url
 
         RestClient::Request.execute(
           method: :delete, url: url,
@@ -60,9 +62,9 @@ module Pusher
         "publish_api/v1/instances/#{instance_id}/#{resource}"
       end
 
-      def build_users_url(resource)
+      def build_users_url(user)
         "https://#{instance_id}.pushnotifications.pusher.com/" \
-        "customer_api/v1/instances/#{instance_id}/#{resource}"
+        "customer_api/v1/instances/#{instance_id}/users/#{user}"
       end
 
       def headers
