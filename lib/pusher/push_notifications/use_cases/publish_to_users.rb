@@ -23,7 +23,7 @@ module Pusher
             next unless user.length > UserId::MAX_USER_ID_LENGTH
             raise UsersPublishError, 'User id length too long ' \
             "(expected fewer than #{UserId::MAX_USER_ID_LENGTH + 1}" \
-            'characters)'
+            ' characters)'
           end
 
           if users.count < 1

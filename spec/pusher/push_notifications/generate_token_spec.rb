@@ -39,12 +39,14 @@ RSpec.describe Pusher::PushNotifications::UseCases::GenerateToken do
     end
 
     context 'when user id is valid' do
-      it 'will generate the token' do
-        exp = Time.now.to_i + 24 * 60 * 60 # Current time + 24h
-        iss = "https://#{instance_id}.pushnotifications.pusher.com"
-        payload = { 'sub' => user, 'exp' => exp, 'iss' => iss }
-        expected_token = JWT.encode payload, secret_key, 'HS256'
-        expect(generate_token['token']).to eq(expected_token)
+      it 'will generate valid token' do
+        expect do
+          JWT.decode generate_token['token'], secret_key, true
+        end.to_not raise_error
+      end
+      it 'will contain user id in the \'sub\' (subject) claim' do
+        decoded_token = JWT.decode generate_token['token'], nil, false
+        expect(decoded_token.first['sub']).to eq(user)
       end
     end
   end

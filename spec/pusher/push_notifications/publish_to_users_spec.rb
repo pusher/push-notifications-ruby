@@ -87,7 +87,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::PublishToUsers do
           Pusher::PushNotifications::UseCases::
           PublishToUsers::UsersPublishError
         ).with_message(
-          'User id length too long (expected fewer than 165 characters)'
+          'User id length too long (expected fewer than ' \
+"#{max_user_id_length + 1} characters)"
         )
       end
     end
