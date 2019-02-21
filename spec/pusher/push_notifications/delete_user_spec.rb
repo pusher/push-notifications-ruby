@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe Pusher::PushNotifications::UseCases::DeleteUser do
   subject(:use_case) { described_class.new(user: user) }
 
-  let(:user) { 'Elmo' }
+  let(:user) { "Stop!' said Fred user" }
 
   describe '#delete_user' do
     subject(:delete_user) { use_case.delete_user }

@@ -34,7 +34,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 20 Feb 2019 16:19:06 GMT
+      - Thu, 21 Feb 2019 13:41:34 GMT
       Content-Length:
       - '59'
       Content-Type:
@@ -43,9 +43,9 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"publishId":"pubid-54f2ba78-08c5-4bb1-a086-22fc589b1270"}
+      string: '{"publishId":"pubid-e164f94d-e938-4aa5-a430-d27f963fe1c0"}
 
 '
     http_version: 
-  recorded_at: Wed, 20 Feb 2019 16:19:05 GMT
+  recorded_at: Thu, 21 Feb 2019 13:41:34 GMT
 recorded_with: VCR 3.0.3

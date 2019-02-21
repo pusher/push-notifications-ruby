@@ -168,12 +168,11 @@ RSpec.describe Pusher::PushNotifications::Client do
     end
   end
   describe '#delete_user' do
-    let(:user) { 'Elmo' }
-    let(:user_resource) { "users/#{user}" }
+    let(:user) { "Stop!' said Fred user" }
     let(:instance_id) { ENV['PUSHER_INSTANCE_ID'] }
     let(:secret_key) { ENV['PUSHER_SECRET_KEY'] }
 
-    subject(:delete_user) { client.delete(user_resource) }
+    subject(:delete_user) { client.delete(user) }
 
     context 'when user id is empty' do
       let(:user) { '' }

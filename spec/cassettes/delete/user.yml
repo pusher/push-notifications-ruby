@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/customer_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/users/Elmo
+    uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/customer_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/users/Stop!'+said+Fred+user
     body:
       encoding: US-ASCII
       string: ''
@@ -31,7 +31,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 20 Feb 2019 16:19:07 GMT
+      - Thu, 21 Feb 2019 13:41:35 GMT
       Content-Length:
       - '0'
       Via:
@@ -40,5 +40,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 20 Feb 2019 16:19:06 GMT
+  recorded_at: Thu, 21 Feb 2019 13:41:35 GMT
 recorded_with: VCR 3.0.3
