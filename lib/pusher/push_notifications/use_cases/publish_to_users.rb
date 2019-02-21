@@ -20,10 +20,10 @@ module Pusher
           users.each do |user|
             raise UsersPublishError, 'User Id cannot be empty.' if user.empty?
 
-            if user.length > UserId::MAX_USER_ID_LENGTH
-              raise UsersPublishError, 'User id length too long ' \
-              "(expected fewer than #{UserId::MAX_USER_ID_LENGTH + 1} characters)"
-            end
+            next unless user.length > UserId::MAX_USER_ID_LENGTH
+            raise UsersPublishError, 'User id length too long ' \
+            "(expected fewer than #{UserId::MAX_USER_ID_LENGTH + 1}" \
+            'characters)'
           end
 
           if users.count < 1

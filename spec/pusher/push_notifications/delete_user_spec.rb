@@ -23,7 +23,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::DeleteUser do
     end
 
     context 'when user id is too long' do
-      let(:user) { 'a' * 165 }
+      max_user_id_length = Pusher::PushNotifications::UserId::MAX_USER_ID_LENGTH
+      let(:user) { 'a' * (max_user_id_length + 1) }
 
       it 'user deletion request will fail' do
         expect { delete_user }.to raise_error(

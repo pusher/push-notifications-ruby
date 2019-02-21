@@ -78,7 +78,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::PublishToUsers do
     end
 
     context 'when user id length is too long' do
-      user_id = 'a' * 165
+      max_user_id_length = Pusher::PushNotifications::UserId::MAX_USER_ID_LENGTH
+      user_id = 'a' * (max_user_id_length + 1)
       let(:users) { [user_id] }
 
       it 'warns an user id is invalid' do
@@ -109,7 +110,8 @@ RSpec.describe Pusher::PushNotifications::UseCases::PublishToUsers do
     end
 
     context 'when too many user ids are provided' do
-      int_array = (1..1001).to_a.shuffle
+      max_num_user_ids = Pusher::PushNotifications::UserId::MAX_NUM_USER_IDS
+      int_array = (1..max_num_user_ids + 1).to_a.shuffle
       test_users = int_array.map do |num|
         "user-#{num}"
       end
