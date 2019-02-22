@@ -36,7 +36,6 @@ module Pusher
       def delete(user)
         url_encoded_user_id = CGI.escape(user)
         url = build_users_url(url_encoded_user_id)
-        puts url
 
         RestClient::Request.execute(
           method: :delete, url: url,
