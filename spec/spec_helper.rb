@@ -1,24 +1,26 @@
 # frozen_string_literal: true
 
-if ENV['COVERAGE']
-  require 'coveralls'
-  Coveralls.wear!
-end
-
 require 'dotenv'
 Dotenv.load
 
 require 'bundler/setup'
 require 'pry-byebug'
-require 'pusher-push-notifications'
+require 'pusher/push_notifications'
 require 'vcr'
 require 'webmock'
+
+if ENV['COVERAGE']
+  require 'coveralls'
+  Coveralls.wear!
+end
 
 require 'simplecov'
 SimpleCov.start
 
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/cassettes'

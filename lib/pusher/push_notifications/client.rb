@@ -9,8 +9,6 @@ module Pusher
     class Client
       extend Forwardable
 
-      BASE_URL = 'pushnotifications.pusher.com/publish_api/v1/instances'
-
       Response = Struct.new(:status, :content, :ok?)
 
       def initialize(config: PushNotifications)
@@ -18,7 +16,7 @@ module Pusher
       end
 
       def post(resource, payload = {})
-        url = build_url(resource)
+        url = build_publish_url(resource)
         body = payload.to_json
 
         RestClient::Request.execute(
@@ -30,7 +28,25 @@ module Pusher
             body = JSON.parse(response.body)
             Response.new(status, body, status == 200)
           else
-            Response.new(500, nil, false)
+            Response.new(status, nil, false)
+          end
+        end
+      end
+
+      def delete(user)
+        url_encoded_user_id = CGI.escape(user)
+        url = build_users_url(url_encoded_user_id)
+
+        RestClient::Request.execute(
+          method: :delete, url: url,
+          headers: headers
+        ) do |response|
+          status = response.code
+          case status
+          when 200
+            Response.new(status, nil, true)
+          else
+            Response.new(status, nil, false)
           end
         end
       end
@@ -40,15 +56,24 @@ module Pusher
       attr_reader :config
       def_delegators :@config, :instance_id, :secret_key
 
-      def build_url(resource)
-        "https://#{instance_id}.#{BASE_URL}/#{instance_id}/#{resource}"
+      def build_publish_url(resource)
+        "https://#{instance_id}.pushnotifications.pusher.com/" \
+        "publish_api/v1/instances/#{instance_id}/#{resource}"
+      end
+
+      def build_users_url(user)
+        "https://#{instance_id}.pushnotifications.pusher.com/" \
+        "customer_api/v1/instances/#{instance_id}/users/#{user}"
       end
 
       def headers
         {
           content_type: 'application/json',
           accept: :json,
-          Authorization: "Bearer #{secret_key}"
+          Authorization: "Bearer #{secret_key}",
+          'X-Pusher-Library':
+          'pusher-push-notifications-ruby ' \
+          "#{Pusher::PushNotifications::VERSION}"
         }
       end
 

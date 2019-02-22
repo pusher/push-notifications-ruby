@@ -1,14 +1,15 @@
 PATH
   remote: .
   specs:
-    pusher-push-notifications (1.0.0)
-      caze
-      rest-client
+    pusher-push-notifications (1.1.0)
+      caze (~> 0)
+      jwt (~> 2.1, >= 2.1.0)
+      rest-client (~> 2.0, >= 2.0.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.0)
+    activesupport (5.2.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -16,7 +17,7 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.3.0)
-    byebug (9.1.0)
+    byebug (10.0.2)
     caze (0.2.2)
       activesupport (>= 3)
     codecov (0.1.10)
@@ -24,7 +25,7 @@ GEM
       simplecov
       url
     coderay (1.1.2)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.4)
     coveralls (0.8.21)
       json (>= 1.8, < 3)
       simplecov (~> 0.14.1)
@@ -41,28 +42,30 @@ GEM
     hashdiff (0.3.7)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.0.1)
+    i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     json (2.1.0)
-    method_source (0.9.0)
-    mime-types (3.1)
+    jwt (2.1.0)
+    method_source (0.9.2)
+    mime-types (3.2.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0521)
+    mime-types-data (3.2018.0812)
     minitest (5.11.3)
     netrc (0.11.0)
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
     powerpack (0.1.1)
-    pry (0.11.3)
+    pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    pry-byebug (3.5.1)
-      byebug (~> 9.1)
+    pry-byebug (3.6.0)
+      byebug (~> 10.0)
       pry (~> 0.10)
     public_suffix (3.0.1)
     rainbow (3.0.0)
     rake (10.5.0)
+    rb-readline (0.5.5)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -117,14 +120,15 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
-  codecov
+  codecov (~> 0)
   coveralls (~> 0.8.21)
   dotenv (~> 2.2, >= 2.2.1)
-  pry-byebug
+  pry-byebug (~> 3.6, >= 3.6.0)
   pusher-push-notifications!
   rake (~> 10.0)
+  rb-readline (~> 0)
   rspec (~> 3.0)
-  rubocop
+  rubocop (~> 0)
   vcr (~> 3.0, >= 3.0.3)
   webmock (~> 3.0, >= 3.0.1)
 

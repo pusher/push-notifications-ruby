@@ -1,12 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://abe1212381f60.pushnotifications.pusher.com/publish_api/v1/instances/abe1212381f60/publishes
+    method: delete
+    uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/customer_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/users/Stop!'+said+Fred+user
     body:
-      encoding: UTF-8
-      string: '{"interests":["hello"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
-        world!"}}},"fcm":{"notification":{"title":"Hello","body":"Hello, world!"}}}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json
@@ -20,32 +19,26 @@ http_interactions:
       - Bearer F8AC0B756E50DF235F642D6F0DC2CDE0328CD9184B3874C5E91AB2189BB722FE
       X-Pusher-Library:
       - pusher-push-notifications-ruby 1.0.0
-      Content-Length:
-      - '153'
       Host:
-      - abe1212381f60.pushnotifications.pusher.com
+      - 1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Server:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Type:
-      - application/json
       Date:
-      - Thu, 21 Feb 2019 13:41:32 GMT
+      - Thu, 21 Feb 2019 13:41:35 GMT
       Content-Length:
-      - '75'
+      - '0'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"error":"Instance not found","description":"Could not find the instance"}
-
-'
+      string: ''
     http_version: 
-  recorded_at: Thu, 21 Feb 2019 13:41:32 GMT
+  recorded_at: Thu, 21 Feb 2019 13:41:35 GMT
 recorded_with: VCR 3.0.3

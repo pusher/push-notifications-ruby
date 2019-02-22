@@ -35,6 +35,8 @@ Where `instance_id` and `secret_key` are the values of the instance you created 
 After the configuration is done you can push notifications like this:
 
 ```ruby
+require 'pusher/push_notifications'
+
 data = {
   apns: {
     aps: {
@@ -52,7 +54,17 @@ data = {
   }
 }
 
-Pusher::PushNotifications.publish(interests: ['hello'], payload: data)
+# Publish the given 'data' to the specified interests.
+Pusher::PushNotifications.publish_to_interests(interests: ['hello'], payload: data)
+
+# Publish the given 'data' to the specified users.
+Pusher::PushNotifications.publish_to_users(users: ['jonathan', 'jordan', 'luis', 'luka', 'mina'], payload: data)
+
+# Authenticate User
+Pusher::PushNotifications.generate_token(user: 'Elmo')
+
+# Delete User
+Pusher::PushNotifications.delete_user(user: 'Elmo')
 ```
 
 The return of this call is a ruby struct containing the http status code (`status`) the response body (`content`) and an `ok?` attribute saying if the notification was successful or not.
@@ -61,14 +73,7 @@ The return of this call is a ruby struct containing the http status code (`statu
 
 ## Errors
 
-The errors statuses can be:
-
-| HTTP Status | Reason                                                                                        |
-| ----------- | --------------------------------------------------------------------------------------------- |
-| 401         | Incorrect secret key                                                                          |
-| 400         | Payload too big (10Kb limit), Payload invalid, Payload in a wrong schema, instance_id missing |
-| 404         | Instance not found                                                                            |
-| 500         | Internal server error                                                                         |
+All available error responses can be be found [here](https://docs.pusher.com/beams/reference/publish-api#error-responses).
 
 ## Development
 

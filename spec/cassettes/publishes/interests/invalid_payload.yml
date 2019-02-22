@@ -5,8 +5,7 @@ http_interactions:
     uri: https://1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com/publish_api/v1/instances/1b880590-6301-4bb5-b34f-45db1c5f5644/publishes
     body:
       encoding: UTF-8
-      string: '{"interests":["hello"],"apns":{"aps":{"alert":{"title":"Hello","body":"Hello,
-        world!"}}},"fcm":{"notification":{"title":"Hello","body":"Hello, world!"}}}'
+      string: '{"invalid":"payload"}'
     headers:
       Accept:
       - application/json
@@ -17,17 +16,17 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer wrong-secret-key
+      - Bearer F8AC0B756E50DF235F642D6F0DC2CDE0328CD9184B3874C5E91AB2189BB722FE
       X-Pusher-Library:
       - pusher-push-notifications-ruby 1.0.0
       Content-Length:
-      - '153'
+      - '21'
       Host:
       - 1b880590-6301-4bb5-b34f-45db1c5f5644.pushnotifications.pusher.com
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 422
+      message: Unprocessable Entity
     headers:
       Server:
       - Cowboy
@@ -36,16 +35,16 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 21 Feb 2019 13:41:32 GMT
+      - Thu, 21 Feb 2019 13:41:33 GMT
       Content-Length:
-      - '62'
+      - '75'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"error":"Unauthorized","description":"Incorrect Secret Key"}
+      string: '{"error":"Bad Request","description":"`interests`: interests is required"}
 
 '
     http_version: 
-  recorded_at: Thu, 21 Feb 2019 13:41:32 GMT
+  recorded_at: Thu, 21 Feb 2019 13:41:33 GMT
 recorded_with: VCR 3.0.3
