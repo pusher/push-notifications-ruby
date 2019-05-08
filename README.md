@@ -22,6 +22,8 @@ gem 'pusher-push-notifications'
 This configuration can be done anywhere you want, but if you are using rails the better place to put it is inside an initializer
 
 ```ruby
+require 'pusher/push_notifications'
+
 Pusher::PushNotifications.configure do |config|
   config.instance_id = ENV['PUSHER_INSTANCE_ID'] # or the value directly
   config.secret_key = ENV['PUSHER_SECRET_KEY']
