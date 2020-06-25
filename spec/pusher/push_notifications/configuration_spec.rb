@@ -8,11 +8,13 @@ RSpec.describe Pusher::PushNotifications do
       described_class.configure do |config|
         config.instance_id = instance_id
         config.secret_key = secret_key
+        config.endpoint = endpoint
       end
     end
 
     let(:instance_id) { ENV['PUSHER_INSTANCE_ID'] }
     let(:secret_key) { ENV['PUSHER_SECRET_KEY'] }
+    let(:endpoint) { nil }
 
     context 'when instance id is not valid' do
       context 'when instance_id is nil' do
@@ -58,6 +60,28 @@ RSpec.describe Pusher::PushNotifications do
       end
     end
 
+    context 'when endpoint is not valid' do
+      context 'when endpoint is empty' do
+        let(:endpoint) { ' ' }
+
+        it 'warns endpoint is invalid' do
+          expect { configuration }.to raise_error(
+            Pusher::PushNotifications::PushError
+          ).with_message('Invalid endpoint override')
+        end
+      end
+    end
+
+    context 'when endpoint is valid' do
+      let(:endpoint) { 'testcluster.pusher.com' }
+
+      it 'overrides the default endpoint' do
+        configuration
+
+        expect(configuration.endpoint).to eq('testcluster.pusher.com')
+      end
+    end
+
     context 'when instance id and secret key are valid' do
       it 'has everything set up' do
         configuration
@@ -67,6 +91,12 @@ RSpec.describe Pusher::PushNotifications do
 
         expect(configuration.secret_key).not_to be_nil
         expect(configuration.secret_key).not_to be_empty
+
+        expect(configuration.endpoint).not_to be_nil
+        expect(configuration.endpoint).not_to be_empty
+        expect(configuration.endpoint).to eq(
+          "#{configuration.instance_id}.pushnotifications.pusher.com"
+        )
       end
     end
   end

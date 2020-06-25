@@ -54,15 +54,15 @@ module Pusher
       private
 
       attr_reader :config
-      def_delegators :@config, :instance_id, :secret_key
+      def_delegators :@config, :instance_id, :secret_key, :endpoint
 
       def build_publish_url(resource)
-        "https://#{instance_id}.pushnotifications.pusher.com/" \
+        "https://#{endpoint}/" \
         "publish_api/v1/instances/#{instance_id}/#{resource}"
       end
 
       def build_users_url(user)
-        "https://#{instance_id}.pushnotifications.pusher.com/" \
+        "https://#{endpoint}/" \
         "customer_api/v1/instances/#{instance_id}/users/#{user}"
       end
 

@@ -44,6 +44,20 @@ module Pusher
         end
         @secret_key = secret_key
       end
+
+      def endpoint=(endpoint)
+        if !endpoint.nil? && endpoint.delete(' ').empty?
+          raise PushError, 'Invalid endpoint override'
+        end
+
+        @endpoint = endpoint
+      end
+
+      def endpoint
+        return @endpoint unless @endpoint.nil?
+
+        "#{@instance_id}.pushnotifications.pusher.com"
+      end
     end
   end
 end

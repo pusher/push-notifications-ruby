@@ -4,7 +4,12 @@ RSpec.describe Pusher::PushNotifications::Client do
   subject(:client) { described_class.new(config: config) }
 
   let(:config) do
-    double(:config, instance_id: instance_id, secret_key: secret_key)
+    double(
+      :config,
+      instance_id: instance_id,
+      secret_key: secret_key,
+      endpoint: "#{instance_id}.pushnotifications.pusher.com"
+    )
   end
 
   describe '#post' do
