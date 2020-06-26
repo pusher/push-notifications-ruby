@@ -57,13 +57,11 @@ module Pusher
       def_delegators :@config, :instance_id, :secret_key, :endpoint
 
       def build_publish_url(resource)
-        "https://#{endpoint}/" \
-        "publish_api/v1/instances/#{instance_id}/#{resource}"
+        "#{endpoint}/publish_api/v1/instances/#{instance_id}/#{resource}"
       end
 
       def build_users_url(user)
-        "https://#{endpoint}/" \
-        "customer_api/v1/instances/#{instance_id}/users/#{user}"
+        "#{endpoint}/customer_api/v1/instances/#{instance_id}/users/#{user}"
       end
 
       def headers
