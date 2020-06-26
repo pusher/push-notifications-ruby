@@ -56,7 +56,7 @@ module Pusher
       def endpoint
         return @endpoint unless @endpoint.nil?
 
-        "#{@instance_id}.pushnotifications.pusher.com"
+        "https://#{@instance_id}.pushnotifications.pusher.com"
       end
     end
   end

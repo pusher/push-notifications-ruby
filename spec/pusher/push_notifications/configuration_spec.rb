@@ -73,12 +73,12 @@ RSpec.describe Pusher::PushNotifications do
     end
 
     context 'when endpoint is valid' do
-      let(:endpoint) { 'testcluster.pusher.com' }
+      let(:endpoint) { 'https://testcluster.pusher.com' }
 
       it 'overrides the default endpoint' do
         configuration
 
-        expect(configuration.endpoint).to eq('testcluster.pusher.com')
+        expect(configuration.endpoint).to eq('https://testcluster.pusher.com')
       end
     end
 
@@ -95,7 +95,7 @@ RSpec.describe Pusher::PushNotifications do
         expect(configuration.endpoint).not_to be_nil
         expect(configuration.endpoint).not_to be_empty
         expect(configuration.endpoint).to eq(
-          "#{configuration.instance_id}.pushnotifications.pusher.com"
+          "https://#{configuration.instance_id}.pushnotifications.pusher.com"
         )
       end
     end

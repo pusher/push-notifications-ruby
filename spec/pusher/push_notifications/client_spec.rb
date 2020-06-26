@@ -8,7 +8,7 @@ RSpec.describe Pusher::PushNotifications::Client do
       :config,
       instance_id: instance_id,
       secret_key: secret_key,
-      endpoint: "#{instance_id}.pushnotifications.pusher.com"
+      endpoint: "https://#{instance_id}.pushnotifications.pusher.com"
     )
   end
 
