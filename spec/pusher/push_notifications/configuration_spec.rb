@@ -99,5 +99,25 @@ RSpec.describe Pusher::PushNotifications do
         )
       end
     end
+
+    context 'when multiple instances are needed' do
+      it 'returns unique clients' do
+        client1 = described_class.configure do |config|
+          config.instance_id = 'acd22e93-d8d6-43ba-9023-20ec05b1d08e'
+          config.secret_key = '123'
+          config.endpoint = 'https://testcluster.pusher.com'
+        end
+        client2 = described_class.configure do |config|
+          config.instance_id = instance_id
+          config.secret_key = secret_key
+          config.endpoint = endpoint
+        end
+
+        expect(client1).not_to eq(client2)
+        expect(client1.instance_id).not_to eq(client2.instance_id)
+        expect(client1.secret_key).not_to eq(client2.secret_key)
+        expect(client1.endpoint).not_to eq(client2.endpoint)
+      end
+    end
   end
 end
