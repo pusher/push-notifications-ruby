@@ -30,7 +30,9 @@ Pusher::PushNotifications.configure do |config|
 end
 ```
 
-Where `instance_id` and `secret_key` are the values of the instance you created in the Pusher Beams dashboard
+Where `instance_id` and `secret_key` are the values of the instance you created in the Pusher Beams dashboard.
+
+If multiple clients are needed, store the reference that is returned from the `configure` method.
 
 ## Usage
 

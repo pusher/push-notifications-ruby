@@ -28,7 +28,9 @@ module Pusher
 
       def configure
         yield(self)
-        self
+        # returning a duplicate of `self` to allow multiple clients to be
+        # configured without needing to reconfigure the singleton instance
+        dup
       end
 
       def instance_id=(instance_id)
