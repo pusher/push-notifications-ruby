@@ -16,6 +16,20 @@ RSpec.describe Pusher::PushNotifications do
     let(:secret_key) { ENV['PUSHER_SECRET_KEY'] }
     let(:endpoint) { nil }
 
+    around do |ex|
+      original_instance_id = described_class.instance_id
+      original_secret_key = described_class.secret_key
+      original_endpoint = described_class.endpoint
+
+      ex.run
+
+      described_class.configure do |c|
+        c.instance_id = original_instance_id
+        c.secret_key = original_secret_key
+        c.endpoint = original_endpoint
+      end
+    end
+
     context 'when instance id is not valid' do
       context 'when instance_id is nil' do
         let(:instance_id) { nil }
