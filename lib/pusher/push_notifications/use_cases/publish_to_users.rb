@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require 'caze'
-
 module Pusher
   module PushNotifications
     module UseCases
       class PublishToUsers
-        include Caze
-
         class UsersPublishError < RuntimeError; end
 
-        export :publish_to_users, as: :publish_to_users
+        class << self
+          def publish_to_users(*args, **kwargs)
+            new(*args, **kwargs).publish_to_users
+          end
+        end
 
         def initialize(users:, payload: {})
           @users = users

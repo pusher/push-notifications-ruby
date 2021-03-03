@@ -1,17 +1,20 @@
 # frozen_string_literal: true
 
-require 'caze'
-
 module Pusher
   module PushNotifications
     module UseCases
       class Publish
-        include Caze
-
         class PublishError < RuntimeError; end
 
-        export :publish, as: :publish
-        export :publish_to_interests, as: :publish_to_interests
+        class << self
+          def publish(*args, **kwargs)
+            new(*args, **kwargs).publish
+          end
+
+          def publish_to_interests(*args, **kwargs)
+            new(*args, **kwargs).publish_to_interests
+          end
+        end
 
         def initialize(interests:, payload: {})
           @interests = interests

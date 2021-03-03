@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require 'caze'
-
 module Pusher
   module PushNotifications
     module UseCases
       class GenerateToken
-        include Caze
-
         class GenerateTokenError < RuntimeError; end
 
-        export :generate_token, as: :generate_token
+        class << self
+          def generate_token(*args, **kwargs)
+            new(*args, **kwargs).generate_token
+          end
+        end
 
         def initialize(user:)
           @user = user
