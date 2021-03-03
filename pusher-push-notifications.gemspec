@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'jwt', '~> 2.1', '>= 2.1.0'
   spec.add_dependency 'rest-client', '~> 2.0', '>= 2.0.2'
 
-  spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_development_dependency 'bundler', '~> 2.2'
   spec.add_development_dependency 'codecov', '~> 0'
   spec.add_development_dependency 'coveralls', '~> 0.8.21'
   spec.add_development_dependency 'dotenv', '~> 2.2', '>= 2.2.1'
