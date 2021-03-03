@@ -5,6 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pusher/push_notifications/version'
 
 Gem::Specification.new do |spec|
+  spec.required_ruby_version = '>= 2.4.2'
   spec.name          = 'pusher-push-notifications'
   spec.version       = Pusher::PushNotifications::VERSION
   spec.authors       = ['Lucas Medeiros', 'Pusher']

@@ -11,7 +11,6 @@ require_relative './push_notifications/token'
 
 module Pusher
   module PushNotifications
-
     class PushError < RuntimeError; end
 
     class << self
@@ -32,23 +31,19 @@ module Pusher
       end
 
       def instance_id=(instance_id)
-        if instance_id.nil? || instance_id.delete(' ').empty?
-          raise PushError, 'Invalid instance id'
-        end
+        raise PushError, 'Invalid instance id' if instance_id.nil? || instance_id.delete(' ').empty?
+
         @instance_id = instance_id
       end
 
       def secret_key=(secret_key)
-        if secret_key.nil? || secret_key.delete(' ').empty?
-          raise PushError, 'Invalid secret key'
-        end
+        raise PushError, 'Invalid secret key' if secret_key.nil? || secret_key.delete(' ').empty?
+
         @secret_key = secret_key
       end
 
       def endpoint=(endpoint)
-        if !endpoint.nil? && endpoint.delete(' ').empty?
-          raise PushError, 'Invalid endpoint override'
-        end
+        raise PushError, 'Invalid endpoint override' if !endpoint.nil? && endpoint.delete(' ').empty?
 
         @endpoint = endpoint
       end

@@ -17,6 +17,7 @@ module Pusher
           @user_id = Pusher::PushNotifications::UserId.new
 
           raise GenerateTokenError, 'User Id cannot be empty.' if user.empty?
+
           if user.length > UserId::MAX_USER_ID_LENGTH
             raise GenerateTokenError, 'User id length too long ' \
             "(expected fewer than #{UserId::MAX_USER_ID_LENGTH + 1} characters)"
