@@ -1,36 +1,39 @@
 # frozen_string_literal: true
 
-require 'caze'
-
 module Pusher
   module PushNotifications
     module UseCases
       class Publish
-        include Caze
-
         class PublishError < RuntimeError; end
 
-        export :publish, as: :publish
-        export :publish_to_interests, as: :publish_to_interests
+        class << self
+          def publish(*args, **kwargs)
+            new(*args, **kwargs).publish
+          end
+
+          def publish_to_interests(*args, **kwargs)
+            new(*args, **kwargs).publish_to_interests
+          end
+        end
 
         def initialize(interests:, payload: {})
           @interests = interests
           @payload = payload
           @user_id = Pusher::PushNotifications::UserId.new
 
-          valid_interest_pattern = /^(_|\-|=|@|,|\.|:|[A-Z]|[a-z]|[0-9])*$/
+          valid_interest_pattern = /^(_|-|=|@|,|\.|:|[A-Z]|[a-z]|[0-9])*$/
 
           interests.each do |interest|
             next if valid_interest_pattern.match?(interest)
+
             raise PublishError,
                   "Invalid interest name \nMax #{UserId::MAX_USER_ID_LENGTH}" \
                   ' characters and can only contain ASCII upper/lower-case' \
                   ' letters, numbers or one of _-=@,.:'
           end
 
-          if interests.empty?
-            raise PublishError, 'Must provide at least one interest'
-          end
+          raise PublishError, 'Must provide at least one interest' if interests.empty?
+
           if interests.length > 100
             raise PublishError, "Number of interests #{interests.length}" \
             ' exceeds maximum of 100'

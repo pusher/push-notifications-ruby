@@ -32,6 +32,13 @@ RSpec.configure do |config|
 
   config.disable_monkey_patching!
 
+  config.before(:suite) do
+    Pusher::PushNotifications.configure do |c|
+      c.instance_id = ENV['PUSHER_INSTANCE_ID']
+      c.secret_key = ENV['PUSHER_SECRET_KEY']
+    end
+  end
+
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end

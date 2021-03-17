@@ -1,22 +1,23 @@
 # frozen_string_literal: true
 
-require 'caze'
-
 module Pusher
   module PushNotifications
     module UseCases
       class GenerateToken
-        include Caze
-
         class GenerateTokenError < RuntimeError; end
 
-        export :generate_token, as: :generate_token
+        class << self
+          def generate_token(*args, **kwargs)
+            new(*args, **kwargs).generate_token
+          end
+        end
 
         def initialize(user:)
           @user = user
           @user_id = Pusher::PushNotifications::UserId.new
 
           raise GenerateTokenError, 'User Id cannot be empty.' if user.empty?
+
           if user.length > UserId::MAX_USER_ID_LENGTH
             raise GenerateTokenError, 'User id length too long ' \
             "(expected fewer than #{UserId::MAX_USER_ID_LENGTH + 1} characters)"

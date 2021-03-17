@@ -20,6 +20,7 @@ module Pusher
       private
 
       attr_reader :config
+
       def_delegators :@config, :instance_id, :secret_key
     end
   end

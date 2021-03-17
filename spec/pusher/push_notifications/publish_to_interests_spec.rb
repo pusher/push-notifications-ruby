@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-RSpec.describe Pusher::PushNotifications::UseCases::Publish do
-  subject(:use_case) do
-    described_class.new(interests: interests, payload: payload)
+RSpec.describe Pusher::PushNotifications, '.publish_to_interests' do
+  def publish_to_interests
+    described_class.publish_to_interests(interests: interests, payload: payload)
   end
 
   let(:interests) { ['hello'] }
@@ -28,8 +28,6 @@ RSpec.describe Pusher::PushNotifications::UseCases::Publish do
   end
 
   describe '#publish_to_interests' do
-    subject(:publish_to_interests) { use_case.publish_to_interests }
-
     context 'when payload is malformed' do
       let(:payload) do
         { invalid: 'payload' }
