@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+* [ADDED] Support for Ruby 3.0.
+* [REMOVED] Support for Ruby 2.5 and below.
+* [CHANGED] Refactor tests to avoid caze dependency.
+
 ## 1.3.0
 
 * [ADDED] Support for multiple instances of Beams clients to exist for more advanced use cases.
