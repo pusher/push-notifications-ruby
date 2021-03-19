@@ -1,7 +1,6 @@
 # Pusher Beams Ruby Server SDK
 
-[![Build Status](https://travis-ci.org/pusher/push-notifications-ruby.svg?branch=master)](https://travis-ci.org/pusher/push-notifications-ruby)
-[![Coverage Status](https://coveralls.io/repos/github/pusher/push-notifications-ruby/badge.svg?branch=update-sdk)](https://coveralls.io/github/pusher/push-notifications-ruby?branch=update-sdk)
+[![Test](https://github.com/pusher/push-notifications-ruby/actions/workflows/test.yml/badge.svg)](https://github.com/pusher/push-notifications-ruby/actions/workflows/test.yml) [![Coverage Status](https://coveralls.io/repos/github/pusher/push-notifications-ruby/badge.svg)](https://coveralls.io/github/pusher/push-notifications-ruby) [![Gem](https://img.shields.io/gem/v/pusher-push-notifications)](https://rubygems.org/gems/pusher-push-notifications)
 
 Pusher Beams using the Pusher system.
 
