@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+* [CHANGED] Update Gemfile lock on release.
+
 ## 2.0.0
 
 * [ADDED] Support for Ruby 3.0.
