@@ -6,17 +6,8 @@ module Pusher
       class PublishToUsers
         class UsersPublishError < RuntimeError; end
 
-        class << self
-          def publish_to_users(*args, **kwargs)
-            new(*args, **kwargs).publish_to_users
-          end
-        end
-
-        def initialize(users:, payload: {})
-          @users = users
-          @user_id = Pusher::PushNotifications::UserId.new
-          @payload = payload
-
+        # Publish the given payload to the specified users.
+        def self.publish_to_users(client, users:, payload: {})
           users.each do |user|
             raise UsersPublishError, 'User Id cannot be empty.' if user.empty?
 
@@ -33,20 +24,9 @@ module Pusher
             raise UsersPublishError, "Number of user ids #{users.length} "\
             "exceeds maximum of #{UserId::MAX_NUM_USER_IDS}."
           end
-        end
 
-        # Publish the given payload to the specified users.
-        def publish_to_users
           data = { users: users }.merge!(payload)
           client.post('publishes/users', data)
-        end
-
-        private
-
-        attr_reader :users, :payload
-
-        def client
-          @client ||= PushNotifications::Client.new
         end
       end
     end
