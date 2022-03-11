@@ -14,14 +14,7 @@ module Pusher
     class PushError < RuntimeError; end
 
     class << self
-      extend Forwardable
-
       attr_reader :instance_id, :secret_key
-
-      def_delegators UseCases::Publish, :publish, :publish_to_interests
-      def_delegators UseCases::PublishToUsers, :publish_to_users
-      def_delegators UseCases::DeleteUser, :delete_user
-      def_delegators UseCases::GenerateToken, :generate_token
 
       def configure
         yield(self)
@@ -52,6 +45,32 @@ module Pusher
         return @endpoint unless @endpoint.nil?
 
         "https://#{@instance_id}.pushnotifications.pusher.com"
+      end
+
+      def publish(interests:, payload: {})
+        UseCases::Publish.publish(client, interests: interests, payload: payload)
+      end
+
+      def publish_to_interests(interests:, payload: {})
+        UseCases::Publish.publish_to_interests(client, interests: interests, payload: payload)
+      end
+
+      def publish_to_users(users:, payload: {})
+        UseCases::PublishToUsers.publish_to_users(client, users: users, payload: payload)
+      end
+
+      def delete_user(user:)
+        UseCases::DeleteUser.delete_user(client, user: user)
+      end
+
+      def generate_token(user:)
+        UseCases::GenerateToken.generate_token(user: user)
+      end
+
+      private
+
+      def client
+        @client ||= Client.new(config: self)
       end
     end
   end

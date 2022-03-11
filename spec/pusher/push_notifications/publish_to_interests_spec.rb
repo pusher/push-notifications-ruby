@@ -109,5 +109,48 @@ exceeds maximum of 100")
         end
       end
     end
+
+    context 'when there are two instances' do
+      around do |ex|
+        original_instance_id = described_class.instance_id
+        original_secret_key = described_class.secret_key
+        original_endpoint = described_class.endpoint
+
+        ex.run
+
+        described_class.configure do |c|
+          c.instance_id = original_instance_id
+          c.secret_key = original_secret_key
+          c.endpoint = original_endpoint
+        end
+      end
+
+      it 'uses the correct client' do
+        client_a = Pusher::PushNotifications.configure do |config|
+          config.instance_id = '123'
+          config.secret_key = 'abc'
+        end
+
+        client_b = Pusher::PushNotifications.configure do |config|
+          config.instance_id = '456'
+          config.secret_key = 'def'
+        end
+
+        expect(Pusher::PushNotifications::UseCases::Publish)
+          .to receive(:publish_to_interests)
+          .with(client_a.send(:client), interests: interests, payload: payload)
+          .and_return(nil)
+          .once
+
+        expect(Pusher::PushNotifications::UseCases::Publish)
+          .to receive(:publish_to_interests)
+          .with(client_b.send(:client), interests: interests, payload: payload)
+          .and_return(nil)
+          .once
+
+        client_a.publish_to_interests(interests: interests, payload: payload)
+        client_b.publish_to_interests(interests: interests, payload: payload)
+      end
+    end
   end
 end

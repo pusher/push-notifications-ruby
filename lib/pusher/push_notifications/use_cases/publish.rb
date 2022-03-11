@@ -6,21 +6,16 @@ module Pusher
       class Publish
         class PublishError < RuntimeError; end
 
-        class << self
-          def publish(*args, **kwargs)
-            new(*args, **kwargs).publish
-          end
-
-          def publish_to_interests(*args, **kwargs)
-            new(*args, **kwargs).publish_to_interests
-          end
+        # Publish the given payload to the specified interests.
+        # <b>DEPRECATED:</b> Please use <tt>publish_to_interests</tt> instead.
+        def self.publish(client, interests:, payload: {})
+          warn "[DEPRECATION] `publish` is deprecated. \
+Please use `publish_to_interests` instead."
+          publish_to_interests(client, interests: interests, payload: payload)
         end
 
-        def initialize(interests:, payload: {})
-          @interests = interests
-          @payload = payload
-          @user_id = Pusher::PushNotifications::UserId.new
-
+        # Publish the given payload to the specified interests.
+        def self.publish_to_interests(client, interests:, payload: {})
           valid_interest_pattern = /^(_|-|=|@|,|\.|:|[A-Z]|[a-z]|[0-9])*$/
 
           interests.each do |interest|
@@ -38,28 +33,9 @@ module Pusher
             raise PublishError, "Number of interests #{interests.length}" \
             ' exceeds maximum of 100'
           end
-        end
 
-        # Publish the given payload to the specified interests.
-        # <b>DEPRECATED:</b> Please use <tt>publish_to_interests</tt> instead.
-        def publish
-          warn "[DEPRECATION] `publish` is deprecated. \
-Please use `publish_to_interests` instead."
-          publish_to_interests
-        end
-
-        # Publish the given payload to the specified interests.
-        def publish_to_interests
           data = { interests: interests }.merge!(payload)
           client.post('publishes', data)
-        end
-
-        private
-
-        attr_reader :interests, :payload
-
-        def client
-          @client ||= PushNotifications::Client.new
         end
       end
     end
