@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2
+
+* [FIXED] Multiple Beams instances no longer use last configuration.
+
 ## 2.0.1
 
 * [CHANGED] Update Gemfile lock on release.
