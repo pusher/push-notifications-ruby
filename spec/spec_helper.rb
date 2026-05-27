@@ -17,10 +17,6 @@ end
 require 'simplecov'
 SimpleCov.start
 
-if ENV['CI'] == 'true'
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/cassettes'
