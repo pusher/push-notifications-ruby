@@ -2,11 +2,11 @@ Documentation:
   Enabled: false
 
 AllCops:
-  TargetRubyVersion: 2.4.0
+  TargetRubyVersion: 3.2
+  NewCops: disable
 
-Metrics/LineLength:
-  Enabled:
-    Max: 80
+Layout/LineLength:
+  Max: 80
 
 Style/GuardClause:
   Enabled: false
