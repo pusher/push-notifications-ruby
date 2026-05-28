@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     pusher-push-notifications (2.0.2)
-      jwt (~> 2.1, >= 2.1.0)
+      jwt (>= 2.1, < 4)
       rest-client (~> 2.0, >= 2.0.2)
 
 GEM
@@ -11,6 +11,7 @@ GEM
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.3)
+    base64 (0.3.0)
     byebug (13.0.0)
       reline (>= 0.6.0)
     codecov (0.2.12)
@@ -36,7 +37,8 @@ GEM
       domain_name (~> 0.5)
     io-console (0.8.2)
     json (2.5.1)
-    jwt (2.2.2)
+    jwt (3.2.0)
+      base64
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     method_source (1.1.0)
