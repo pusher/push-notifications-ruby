@@ -12,6 +12,7 @@ GEM
       public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.3)
     base64 (0.3.0)
+    bigdecimal (3.1.9)
     byebug (13.0.0)
       reline (>= 0.6.0)
     codecov (0.2.12)
