@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.3
+
+* [FIXED] Ruby 3.4 compatibility
+* [CHANGED] Widen JWT dependency constraint from ~> 2.1 to >= 2.1, < 4 to support jwt v3
+* [REMOVED] Support for Ruby below 3.3
+
 ## 2.0.2
 
 * [FIXED] Multiple Beams instances no longer use last configuration.
