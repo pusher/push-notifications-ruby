@@ -6,9 +6,12 @@ AllCops:
   NewCops: disable
 
 Layout/LineLength:
-  Max: 80
+  Max: 120
 
 Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
   Enabled: false
 
 Metrics/MethodLength:
