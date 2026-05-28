@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pusher-push-notifications (2.0.2)
+    pusher-push-notifications (2.0.3)
       jwt (>= 2.1, < 4)
       rest-client (~> 2.0, >= 2.0.2)
 
